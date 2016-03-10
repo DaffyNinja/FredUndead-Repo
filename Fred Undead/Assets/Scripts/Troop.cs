@@ -3,10 +3,21 @@ using System.Collections;
 
 public class Troop : MonoBehaviour {
 
+    public GameObject bulletObj;
+    public Transform bulletSpawn;
+    [Space(5)]
     public float sightLength;
+    public bool startShooting;
+
+    Animator anim;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        anim = GetComponent<Animator>();
+
+
+        
 	
 	}
 	
@@ -20,9 +31,25 @@ public class Troop : MonoBehaviour {
             if (hit.collider.tag == "Player")
             {
                 print("Player");
+
+                startShooting = true;
+
+                anim.SetBool("isShooting", true);
+
+                //Shoot
+
+                Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
+
             }
-        }
         
+        }
+        else
+        {
+            startShooting = false;
+
+            anim.SetBool("isShooting", false);
+        }
+
 
     }
 }
