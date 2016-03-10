@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 90fb4c17e114edd40b4bf9624d7a5a1c
+timeCreated: 1457578973
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: toops_0
+    21300002: toops_1
+    21300004: toops_2
+    21300006: toops_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: toops_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 111
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 66}
+        - {x: -43.5, y: 17}
+        - {x: -43.5, y: -9}
+        - {x: -35.5, y: -15}
+        - {x: -23.5, y: -12}
+        - {x: -26.5, y: -35}
+        - {x: -39.5, y: -75}
+        - {x: -39.5, y: -78}
+        - {x: 52.5, y: -78}
+        - {x: 52.5, y: 52}
+        - {x: 26.5, y: 66}
+    - name: toops_1
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 111
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 66}
+        - {x: -50.5, y: 50}
+        - {x: -50.5, y: -59}
+        - {x: -47.5, y: -78}
+        - {x: 50.5, y: -78}
+        - {x: 50.5, y: 37}
+        - {x: 38.5, y: 66}
+    - name: toops_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 111
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 66}
+        - {x: -54.5, y: 54}
+        - {x: -54.5, y: -38}
+        - {x: -42.5, y: -78}
+        - {x: 55.5, y: -78}
+        - {x: 55.5, y: 64}
+        - {x: 51.5, y: 66}
+    - name: toops_3
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 0
+        width: 111
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55.5, y: 66}
+        - {x: -55.5, y: -78}
+        - {x: 40.5, y: -78}
+        - {x: 40.5, y: 48}
+        - {x: 27.5, y: 66}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
