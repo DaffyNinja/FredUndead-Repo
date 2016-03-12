@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
     public bool isJumping;
     public LayerMask groundLayer;
 
-    public bool passedLayer;
+    // public bool passedLayer;
 
     public Transform checkPointPos;
 
@@ -78,10 +78,7 @@ public class PlayerMove : MonoBehaviour
 
 
         }
-        //else
-        //{
-        //    playerAnimator.SetBool("isRunning", false);
-        //}
+
 
 
 
@@ -115,10 +112,6 @@ public class PlayerMove : MonoBehaviour
             // playerAnimator.SetBool("isRunning", true);
 
         }
-        //else
-        //{
-        //    playerAnimator.SetBool("isRunning", false);
-        //}
 
 
 
@@ -150,11 +143,7 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
-        //else
-        //{
-        //    playerAnimator.SetBool("isJumping", false);
 
-        //}
 
 
         if (flipMove > 0 && isFacingRight)
@@ -175,22 +164,22 @@ public class PlayerMove : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (passedLayer == false)
-        {
-            if (col.collider.gameObject.layer == LayerMask.NameToLayer("Sec 2"))
-            {
-                passedLayer = true;
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    if (passedLayer == false)
+    //    {
+    //        if (col.collider.gameObject.layer == LayerMask.NameToLayer("Sec 2"))
+    //        {
+    //            passedLayer = true;
 
-                print("Hit");
+    //            print("Hit");
 
-                Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+    //            Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
-               // passedLayer = true;
-            }
-        }
-    }
+    //           // passedLayer = true;
+    //        }
+    //    }
+    //}
 
     void OnTriggerEnter2D(Collider2D col)
     {
