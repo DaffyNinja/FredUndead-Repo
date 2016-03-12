@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour
@@ -24,6 +25,11 @@ public class PlayerMove : MonoBehaviour
 
     public Transform checkPointPos;
 
+    [Header("Decay")]
+    public int healthPoints;
+    public Slider decayBar;
+
+
 
     private Animator playerAnimator;
     private Rigidbody2D rig2D;
@@ -31,19 +37,21 @@ public class PlayerMove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
-
+       // playerAnimator = GetComponent<Animator>();
         rig2D = GetComponent<Rigidbody2D>();
-
         startSpeed = speed;
+
+      
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Controls();
+
+
+        decayBar.value = healthPoints;
 
     }
 
