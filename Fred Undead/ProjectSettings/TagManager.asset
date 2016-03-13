@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Hand
-  - Wall
+  - Wall Left
+  - Wall Right
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - 
   - Ground
-  - Sec 1
-  - Sec 2
-  - Sec 3
+  - Left Wall
+  - Right Wall
+  - Wall
   - 
   - 
   - 
