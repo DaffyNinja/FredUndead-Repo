@@ -27,7 +27,7 @@ public class PlayerMove : MonoBehaviour
 
     [Header("Decay")]
     public int healthPoints;
-    public Slider decayBar;
+    //public Slider decayBar;
 
 
 
@@ -50,8 +50,7 @@ public class PlayerMove : MonoBehaviour
     {
         Controls();
 
-
-        decayBar.value = healthPoints;
+        //decayBar.value = healthPoints;
 
     }
 
@@ -172,22 +171,7 @@ public class PlayerMove : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    //void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    if (passedLayer == false)
-    //    {
-    //        if (col.collider.gameObject.layer == LayerMask.NameToLayer("Sec 2"))
-    //        {
-    //            passedLayer = true;
 
-    //            print("Hit");
-
-    //            Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-
-    //           // passedLayer = true;
-    //        }
-    //    }
-    //}
 
     void OnTriggerEnter2D(Collider2D col)
     {
