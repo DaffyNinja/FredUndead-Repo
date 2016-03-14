@@ -144,7 +144,7 @@ GameObject:
   - 114: {fileID: 11462958}
   m_Layer: 0
   m_Name: Tropper
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1921.3584, y: -2.8785095, z: 0}
+  m_LocalPosition: {x: -1924.49, y: -2.8785095, z: 0}
   m_LocalScale: {x: 1, y: 1.3076082, z: 1}
   m_Children:
   - {fileID: 491180}
@@ -183,7 +183,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160926}
   m_UseAutoMass: 1
-  m_Mass: 0.28501236
+  m_Mass: 1.3032441
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -203,9 +203,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.053263664, y: -0.6042356}
+  m_Offset: {x: 0.053222656, y: -0.19118293}
   serializedVersion: 2
-  m_Size: {x: 0.94261307, y: 0.23123449}
+  m_Size: {x: 0.9426131, y: 1.05734}
 --- !u!95 &9505190
 Animator:
   serializedVersion: 3
@@ -336,12 +336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d7bd734b3735c4daec7e8ceb165f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
   troopHealthPoints: 5
-  troopEnemyBar: {fileID: 0}
+  troopEnemyBar: {fileID: 11451528}
   bulletObj: {fileID: 142272, guid: 47b38155ab408b04890525588e22078d, type: 2}
   bulletSpawn: {fileID: 0}
-  gunSightLength: 0
+  gunSightLength: 5
   startShooting: 0
   rayLength: 1
   wallLayer:
@@ -351,6 +351,8 @@ MonoBehaviour:
   moveRight: 0
   canHitLeft: 1
   canHitRight: 0
+  isFacingRight: 0
+  playCom: {fileID: 0}
 --- !u!114 &11498002
 MonoBehaviour:
   m_ObjectHideFlags: 1

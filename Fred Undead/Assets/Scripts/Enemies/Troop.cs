@@ -28,13 +28,15 @@ public class Troop : MonoBehaviour
 
 
 
-    bool isFacingRight;
+    public bool isFacingRight;
     float flipMove;
 
     RaycastHit2D hit;
 
     Rigidbody2D rig2D;
     Animator anim;
+
+    public PlayerCombat playCom;
 
     // Use this for initialization
     void Start()
@@ -46,7 +48,7 @@ public class Troop : MonoBehaviour
         bulletSpawn = transform.GetChild(0);
 
         troopEnemyBar.maxValue = troopHealthPoints;
-       
+
 
 
     }
@@ -58,43 +60,7 @@ public class Troop : MonoBehaviour
 
         Move();
 
-
-        if (isFacingRight == false)
-        {
-            hit = Physics2D.Raycast(new Vector2(transform.position.x + 5, transform.position.y), Vector2.left, gunSightLength);
-
-        }
-        else if (isFacingRight == true)
-        {
-            hit = Physics2D.Raycast(new Vector2(transform.position.x - 5, transform.position.y), Vector2.right, gunSightLength);
-        }
-
-        if (hit)
-        {
-            //print("Hit");
-
-            if (hit.collider.tag == "Player")
-            {
-                print("Player");
-
-                startShooting = true;
-
-                anim.SetBool("isShooting", true);
-
-                //Shoot
-
-                Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
-            }
-
-        }
-        else
-        {
-            startShooting = false;
-
-            anim.SetBool("isShooting", false);
-        }
-
-
+        Combat();
 
         if (flipMove > 0 && isFacingRight)
         {
@@ -103,6 +69,11 @@ public class Troop : MonoBehaviour
         else if (flipMove < 0 && !isFacingRight)
         {
             Flip();
+        }
+
+        if (troopHealthPoints <= 0)
+        {
+            Destroy(gameObject);
         }
 
     }
@@ -126,6 +97,9 @@ public class Troop : MonoBehaviour
 
                 canHitLeft = false;
                 canHitRight = true;
+
+                Flip();
+
             }
         }
 
@@ -133,7 +107,7 @@ public class Troop : MonoBehaviour
         {
             if (hitRight)
             {
-               // print("Right");
+                // print("Right");
 
                 moveRight = false;
                 moveLeft = true;
@@ -141,6 +115,8 @@ public class Troop : MonoBehaviour
 
                 canHitLeft = true;
                 canHitRight = false;
+
+                Flip();
 
             }
         }
@@ -161,6 +137,45 @@ public class Troop : MonoBehaviour
 
     }
 
+    void Combat()
+    {
+
+        if (!isFacingRight)
+        {
+            hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, gunSightLength);
+            // Debug.DrawRay(transform.position, Vector2.left, Color.green, hit.distance);
+        }
+        else
+        {
+            hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, gunSightLength);
+            // Debug.DrawRay(transform.position, Vector2.right, Color.green,hit.distance);
+        }
+
+    
+        if (hit)
+        {
+            if (hit.collider.tag == "Player")
+            {
+                print("Player");
+
+                startShooting = true;
+
+                anim.SetBool("isShooting", true);
+
+                //Shoot
+
+                Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
+            }
+
+        }
+        else
+        {
+            startShooting = false;
+
+            anim.SetBool("isShooting", false);
+        }
+    }
+
     void Flip()
     {
         isFacingRight = !isFacingRight;
@@ -169,12 +184,15 @@ public class Troop : MonoBehaviour
         transform.localScale = theScale;
     }
 
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Hand")
         {
-            troopHealthPoints -= 1;
-              
+            troopHealthPoints -= playCom.normalDamage;
+
+            //  print("Hand");
+
         }
     }
 

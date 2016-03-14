@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public int normalDamage;
     public GameObject hitHand;
+
 
     // Use this for initialization
     void Start()
