@@ -26,16 +26,22 @@ public class Troop : MonoBehaviour
     public bool canHitLeft;
     public bool canHitRight;
 
-
-
     public bool isFacingRight;
     float flipMove;
+
+    //Combat States
+    [Header("Combat States")]
+    public bool isPatrolling;
+    public bool isInCombat;
+
+
 
     RaycastHit2D hit;
 
     Rigidbody2D rig2D;
     Animator anim;
 
+    [Space(5)]
     public PlayerCombat playCom;
 
     // Use this for initialization
@@ -81,10 +87,9 @@ public class Troop : MonoBehaviour
     void Move()
     {
 
+
         RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, rayLength, wallLayer);
         RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, rayLength, wallLayer);
-
-
 
         if (canHitLeft)
         {
@@ -121,19 +126,22 @@ public class Troop : MonoBehaviour
             }
         }
 
-        if (moveRight)
+        if (isPatrolling)
         {
-            Vector2 moveQauntity = new Vector2(speed, 0);
-            rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
+            if (moveRight)
+            {
+                Vector2 moveQauntity = new Vector2(speed, 0);
+                rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
+
+            }
+            else if (moveLeft)
+            {
+                Vector2 moveQauntity = new Vector2(-speed, 0);
+                rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
+
+            }
 
         }
-        else if (moveLeft)
-        {
-            Vector2 moveQauntity = new Vector2(-speed, 0);
-            rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
-        }
-
 
     }
 
@@ -151,22 +159,37 @@ public class Troop : MonoBehaviour
             // Debug.DrawRay(transform.position, Vector2.right, Color.green,hit.distance);
         }
 
-    
+
         if (hit)
         {
             if (hit.collider.tag == "Player")
             {
                 print("Player");
 
-                startShooting = true;
+                isInCombat = true;
+                isPatrolling = false;
 
-                anim.SetBool("isShooting", true);
 
-                //Shoot
-
-                Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
             }
+           
 
+        }
+        else
+        {
+            isPatrolling = true;
+            isInCombat = false;
+        }
+
+
+        if (isInCombat)
+        {
+            startShooting = true;
+
+            anim.SetBool("isShooting", true);
+
+            //Shoot
+
+            Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
         }
         else
         {

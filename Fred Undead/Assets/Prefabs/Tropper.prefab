@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  troopHealthPoints: 5
+  troopHealthPoints: 20
   troopEnemyBar: {fileID: 11451528}
   bulletObj: {fileID: 142272, guid: 47b38155ab408b04890525588e22078d, type: 2}
   bulletSpawn: {fileID: 0}
@@ -352,6 +352,8 @@ MonoBehaviour:
   canHitLeft: 1
   canHitRight: 0
   isFacingRight: 0
+  isPatrolling: 1
+  isInCombat: 0
   playCom: {fileID: 0}
 --- !u!114 &11498002
 MonoBehaviour:
