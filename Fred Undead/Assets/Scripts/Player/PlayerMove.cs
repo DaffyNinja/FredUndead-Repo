@@ -27,6 +27,11 @@ public class PlayerMove : MonoBehaviour
 
     [Header("Decay")]
     public int healthPoints;
+
+    public bool isCrawling;
+    public bool isZombie;
+    public bool isGhoul;
+    public bool isUndying;
     //public Slider decayBar;
 
 
@@ -41,6 +46,7 @@ public class PlayerMove : MonoBehaviour
         rig2D = GetComponent<Rigidbody2D>();
         startSpeed = speed;
 
+        isUndying = true;
       
 
     }
@@ -142,7 +148,6 @@ public class PlayerMove : MonoBehaviour
                 isJumping = true;
 
 
-
             }
             else
             {
@@ -161,6 +166,12 @@ public class PlayerMove : MonoBehaviour
         {
             Flip();
         }
+    }
+
+    void Health()
+    {
+        
+
     }
 
     void Flip()
