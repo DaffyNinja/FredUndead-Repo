@@ -12,8 +12,6 @@ public class PlayerCombat : MonoBehaviour
 
         hitHand.SetActive(false);
 
-
-
     }
 
     // Update is called once per frame

@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Troop : MonoBehaviour
 {
-
+    [Header("Movement and Health")]
     public float speed;
-    [Header("Shoot")]
+    public int troopHealthPoints;
+    public Slider troopEnemyBar;
+
+
+    [Header("Shoot and Find")]
     public GameObject bulletObj;
     public Transform bulletSpawn;
     [Space(5)]
@@ -20,6 +25,7 @@ public class Troop : MonoBehaviour
 
     public bool canHitLeft;
     public bool canHitRight;
+
 
 
     bool isFacingRight;
@@ -37,12 +43,18 @@ public class Troop : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
+        bulletSpawn = transform.GetChild(0);
+
+        troopEnemyBar.maxValue = troopHealthPoints;
+       
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        troopEnemyBar.value = troopHealthPoints;
 
         Move();
 
@@ -56,7 +68,6 @@ public class Troop : MonoBehaviour
         {
             hit = Physics2D.Raycast(new Vector2(transform.position.x - 5, transform.position.y), Vector2.right, gunSightLength);
         }
-
 
         if (hit)
         {
@@ -85,7 +96,6 @@ public class Troop : MonoBehaviour
 
 
 
-
         if (flipMove > 0 && isFacingRight)
         {
             Flip();
@@ -109,7 +119,7 @@ public class Troop : MonoBehaviour
         {
             if (hitLeft)
             {
-                print("Left");
+                //print("Left");
 
                 moveLeft = false;
                 moveRight = true;
@@ -123,11 +133,11 @@ public class Troop : MonoBehaviour
         {
             if (hitRight)
             {
-                print("Right");
+               // print("Right");
 
                 moveRight = false;
                 moveLeft = true;
-               
+
 
                 canHitLeft = true;
                 canHitRight = false;
@@ -158,4 +168,15 @@ public class Troop : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Hand")
+        {
+            troopHealthPoints -= 1;
+              
+        }
+    }
+
+
 }
