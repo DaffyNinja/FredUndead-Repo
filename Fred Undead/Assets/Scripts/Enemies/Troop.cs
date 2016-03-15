@@ -35,6 +35,7 @@ public class Troop : MonoBehaviour
     public bool isInCombat;
 
 
+    Bullet bulletCS;
 
     RaycastHit2D hit;
 
@@ -54,6 +55,8 @@ public class Troop : MonoBehaviour
         bulletSpawn = transform.GetChild(0);
 
         troopEnemyBar.maxValue = troopHealthPoints;
+
+        bulletCS = bulletObj.GetComponent<Bullet>();
 
 
 
@@ -151,12 +154,20 @@ public class Troop : MonoBehaviour
         if (!isFacingRight)
         {
             hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, gunSightLength);
+
+            bulletCS.moveLeft = true;
+            bulletCS.moveRight = false;
+
             // Debug.DrawRay(transform.position, Vector2.left, Color.green, hit.distance);
         }
         else
         {
             hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, gunSightLength);
             // Debug.DrawRay(transform.position, Vector2.right, Color.green,hit.distance);
+
+            bulletCS.moveRight = true;
+            bulletCS.moveLeft = false;
+
         }
 
 
@@ -171,7 +182,7 @@ public class Troop : MonoBehaviour
 
 
             }
-           
+
 
         }
         else

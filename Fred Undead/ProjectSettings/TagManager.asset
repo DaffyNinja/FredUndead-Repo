@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - Wall Left
   - Wall Right
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Left Wall
   - Right Wall
   - Wall
-  - 
+  - Bullet
   - 
   - 
   - 

@@ -183,6 +183,15 @@ public class PlayerMove : MonoBehaviour
     }
 
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Bullet")
+        {
+            print("Hit");
+        }
+
+    }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
