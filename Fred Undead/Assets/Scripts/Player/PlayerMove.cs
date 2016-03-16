@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     float startSpeed;
 
 
-    float flipMove;
+    public float flipMove;
     public bool isFacingRight;
     [Space(5)]
     public float jumpRayLength;
@@ -34,7 +34,7 @@ public class PlayerMove : MonoBehaviour
     public bool isUndying;
     //public Slider decayBar;
 
-
+    public CameraMove camMove;
 
     private Animator playerAnimator;
     private Rigidbody2D rig2D;
@@ -42,12 +42,14 @@ public class PlayerMove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       // playerAnimator = GetComponent<Animator>();
+        // playerAnimator = GetComponent<Animator>();
         rig2D = GetComponent<Rigidbody2D>();
         startSpeed = speed;
 
         isUndying = true;
-      
+
+
+
 
     }
 
@@ -170,7 +172,7 @@ public class PlayerMove : MonoBehaviour
 
     void Health()
     {
-        
+
 
     }
 
@@ -199,6 +201,23 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = checkPointPos.position;
         }
+
+        if (col.gameObject.tag == "LeftSide")
+        {
+            print("Left");
+
+            camMove.isLeftSide = true;
+            camMove.isRightSide = false;
+
+        }
+        else if (col.gameObject.tag == "RightSide")
+        {
+            print("Right");
+
+            camMove.isRightSide = true;
+            camMove.isLeftSide = false;
+        }
+
     }
 
 

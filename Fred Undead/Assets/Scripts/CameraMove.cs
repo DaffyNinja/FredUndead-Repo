@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraMove : MonoBehaviour {
+public class CameraMove : MonoBehaviour
+{
 
     public float disX;
     public float disY;
@@ -11,6 +12,9 @@ public class CameraMove : MonoBehaviour {
 
     public Transform playerTrans;
     Vector3 playerPos;
+
+    public bool isLeftSide;
+    public bool isRightSide;
 
     Vector3 camPos;
     Camera mainCam;
@@ -29,9 +33,18 @@ public class CameraMove : MonoBehaviour {
 
         playerPos = playerTrans.transform.position;
 
-        playerPos = new Vector3(playerPos.x + disX, playerPos.y + disY, disZ);
+        if (isLeftSide)
+        {
+            playerPos = new Vector3(playerPos.x + disX, playerPos.y + disY, disZ);
+        }
+        else if (isRightSide)
+        {
+            playerPos = new Vector3(playerPos.x - disX, playerPos.y + disY, disZ);
+        }
 
         mainCam.transform.position = playerPos;
 
     }
+
+   
 }

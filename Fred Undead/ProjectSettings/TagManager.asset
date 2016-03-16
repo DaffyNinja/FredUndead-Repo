@@ -9,6 +9,8 @@ TagManager:
   - Wall Left
   - Wall Right
   - Bullet
+  - LeftSide
+  - RightSide
   layers:
   - Default
   - TransparentFX
