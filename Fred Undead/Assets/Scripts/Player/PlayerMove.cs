@@ -32,8 +32,15 @@ public class PlayerMove : MonoBehaviour
     public bool isZombie;
     public bool isGhoul;
     public bool isUndying;
+
+    public Sprite crawlerSpr;
+    public Sprite zombieSpr;
+    public Sprite undyingSpr;
+
+    SpriteRenderer sprRnd;
     //public Slider decayBar;
 
+    [Space(5)]
     public CameraMove camMove;
 
     private Animator playerAnimator;
@@ -46,6 +53,8 @@ public class PlayerMove : MonoBehaviour
         rig2D = GetComponent<Rigidbody2D>();
         startSpeed = speed;
 
+        sprRnd = GetComponent<SpriteRenderer>();
+
         isUndying = true;
 
 
@@ -57,6 +66,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Controls();
+
+        Health();
 
         //decayBar.value = healthPoints;
 
@@ -173,6 +184,19 @@ public class PlayerMove : MonoBehaviour
     void Health()
     {
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            sprRnd.sprite = undyingSpr;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            sprRnd.sprite = zombieSpr;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            sprRnd.sprite = crawlerSpr;
+
+        }
 
     }
 
@@ -212,7 +236,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (col.gameObject.tag == "RightSide")
         {
-            print("Right");
+            //print("Right");
 
             camMove.isRightSide = true;
             camMove.isLeftSide = false;
