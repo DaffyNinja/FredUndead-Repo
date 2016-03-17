@@ -73,14 +73,14 @@ public class PlayerMove : MonoBehaviour
 
         Health();
 
-        if (passedLayer)
-        {
-            Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
-        }
-        else if (!passedLayer)
-        {
-            Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
-        }
+        //if (passedLayer)
+        //{
+        //    Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+        //}
+        //else if (!passedLayer)
+        //{
+        //    Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+        //}
 
         //decayBar.value = healthPoints;
 
@@ -229,33 +229,33 @@ public class PlayerMove : MonoBehaviour
             // print("Hit");
         }
 
-        if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
-        {
+        //if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
+        //{
 
-            passedTrans = col.transform;
+        //    passedTrans = col.transform;
 
-            passedLayer = true;
+        //    passedLayer = true;
 
-        }
-
-
-
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
-        {
-            passedTrans = null;
-
-            passedLayer = false;
-
-           // Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+        //}
 
 
-        }
 
     }
+
+    //void OnCollisionExit2D(Collision2D col)
+    //{
+    //    if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
+    //    {
+    //        passedTrans = null;
+
+    //        passedLayer = false;
+
+    //       // Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+
+
+    //    }
+
+    //}
 
     void OnTriggerEnter2D(Collider2D col)
     {
