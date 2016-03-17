@@ -266,7 +266,7 @@ public class PlayerMove : MonoBehaviour
 
         if (col.gameObject.tag == "LeftSide")
         {
-            print("Left");
+           // print("Left");
 
             camMove.isLeftSide = true;
             camMove.isRightSide = false;

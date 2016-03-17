@@ -38,20 +38,23 @@ public class Lift : MonoBehaviour
 
                 if (fMoveTimer >= 1f)
                 {
-                    bIsMovingToEnd = false;
+                    startMoving = false;
+                    // bIsMovingToEnd = false;
                 }
             }
-            else
-            {
-                fMoveTimer -= speed * Time.deltaTime;
-                transform.position = Vector3.Lerp(vStart,
-                                                  vEnd,
-                                                  fMoveTimer);
-                if (fMoveTimer <= 0f)
-                {
-                    bIsMovingToEnd = true;
-                }
-            }
+            //else
+            //{
+            //    fMoveTimer -= speed * Time.deltaTime;
+            //    transform.position = Vector3.Lerp(vStart,
+            //                                      vEnd,
+            //                                      fMoveTimer);
+            //    if (fMoveTimer <= 0f)
+            //    {
+
+            //        bIsMovingToEnd = true;
+
+            //    }
+            //}
         }
     }
 
@@ -64,7 +67,7 @@ public class Lift : MonoBehaviour
             //Parents the player to the platform so they both move
             col.transform.parent = gameObject.transform;
 
-            
+
         }
     }
 
