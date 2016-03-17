@@ -46,6 +46,10 @@ public class PlayerMove : MonoBehaviour
     private Animator playerAnimator;
     private Rigidbody2D rig2D;
 
+    [Space(5)]
+    public Transform passedTrans;
+    public bool passedLayer;
+
     // Use this for initialization
     void Start()
     {
@@ -68,6 +72,15 @@ public class PlayerMove : MonoBehaviour
         Controls();
 
         Health();
+
+        if (passedLayer)
+        {
+            Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+        }
+        else if (!passedLayer)
+        {
+            Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+        }
 
         //decayBar.value = healthPoints;
 
@@ -213,11 +226,36 @@ public class PlayerMove : MonoBehaviour
     {
         if (col.gameObject.tag == "Bullet")
         {
-            print("Hit");
+            // print("Hit");
         }
+
+        if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
+        {
+
+            passedTrans = col.transform;
+
+            passedLayer = true;
+
+        }
+
+
 
     }
 
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
+        {
+            passedTrans = null;
+
+            passedLayer = false;
+
+           // Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+
+
+        }
+
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
