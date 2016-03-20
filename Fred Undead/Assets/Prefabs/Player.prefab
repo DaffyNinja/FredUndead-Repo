@@ -43,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1941.82, y: -0.3, z: 0}
-  m_LocalScale: {x: 0.14687994, y: 0.2448218, z: 1}
+  m_LocalPosition: {x: -1987.5, y: -2.8, z: 0}
+  m_LocalScale: {x: 1.641954, y: 1.2813743, z: 1}
   m_Children:
   - {fileID: 483880}
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: -0.08, z: 0}
+  m_LocalPosition: {x: 0.71, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404302}
@@ -69,7 +69,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135434}
   m_UseAutoMass: 1
-  m_Mass: 0.75370926
+  m_Mass: 2.539383
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 5
@@ -89,9 +89,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.7000866, y: -0.17079778}
+  m_Offset: {x: -0.26672366, y: -0.36477104}
   serializedVersion: 2
-  m_Size: {x: 2.4001744, y: 0.6584036}
+  m_Size: {x: 0.46649688, y: 0.27045727}
 --- !u!61 &6170410
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -103,9 +103,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.016831877, y: 0.055422038}
   serializedVersion: 2
-  m_Size: {x: 3.2, y: 6.5499997}
+  m_Size: {x: 0.7913574, y: 1.5251709}
 --- !u!114 &11410788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06b3cc9fe62a9047944142b216edd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalDamage: 5
   hitHand: {fileID: 0}
 --- !u!114 &11494836
 MonoBehaviour:
@@ -130,16 +131,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpHeight: 25
+  jumpHeight: 30
+  flipMove: 0
   isFacingRight: 0
   jumpRayLength: 1
   canJump: 0
   isJumping: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 3584
+    m_Bits: 3840
   checkPointPos: {fileID: 0}
   healthPoints: 50
+  isCrawling: 0
+  isZombie: 0
+  isGhoul: 0
+  isUndying: 0
+  crawlerSpr: {fileID: 21300004, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
+  zombieSpr: {fileID: 21300002, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
+  undyingSpr: {fileID: 21300000, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
+  camMove: {fileID: 0}
+  passedTrans: {fileID: 0}
+  passedLayer: 0
 --- !u!212 &21292306
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -166,7 +178,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 50884dbe68ddb3a47aa5d223b7825178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

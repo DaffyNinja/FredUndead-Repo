@@ -16,6 +16,12 @@ public class Troop : MonoBehaviour
     [Space(5)]
     public float gunSightLength;
     public bool startShooting;
+
+    public float shootTime;
+    public float pauseShootTime;
+
+    float shootTimer;
+    float pauseShootTimer;
     [Space(5)]
     public float rayLength;
     public LayerMask wallLayer;
@@ -180,9 +186,7 @@ public class Troop : MonoBehaviour
                 isInCombat = true;
                 isPatrolling = false;
 
-
             }
-
 
         }
         else
@@ -194,19 +198,48 @@ public class Troop : MonoBehaviour
 
         if (isInCombat)
         {
-            startShooting = true;
+           pauseShootTimer += Time.deltaTime;
 
-            anim.SetBool("isShooting", true);
+            //print("Shoot " + shootTimer.ToString());
 
             //Shoot
+            if (pauseShootTimer >= pauseShootTime)
+            {
+                startShooting = true;
+            }
+            else
+            {
+                //startShooting = false;
 
-            Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
-        }
-        else
-        {
-            startShooting = false;
+                anim.SetBool("isShooting", false);
+            }
 
-            anim.SetBool("isShooting", false);
+            if (startShooting)
+            {
+                Instantiate(bulletObj, bulletSpawn.position, Quaternion.identity);
+
+                shootTimer += Time.deltaTime;
+
+              //  print("Pause " + pauseShootTimer.ToString());
+
+                if (shootTimer>= shootTime)
+                {
+                    shootTimer = 0;
+
+                    pauseShootTimer = 0;
+
+                    startShooting = false;
+
+                }
+
+                anim.SetBool("isShooting", true);
+            }
+
+
+
+
+
+
         }
     }
 
