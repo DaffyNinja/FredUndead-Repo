@@ -6,6 +6,12 @@ public class PlayerCombat : MonoBehaviour
     public int normalDamage;
     public GameObject hitHand;
 
+    public float hitWaitTime;
+
+    public bool canHit;
+
+    float timer;
+
 
     // Use this for initialization
     void Start()
@@ -14,18 +20,38 @@ public class PlayerCombat : MonoBehaviour
 
         hitHand.SetActive(false);
 
+        canHit = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (canHit)
         {
-            hitHand.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                hitHand.SetActive(true);
+                
+
+            }
+            else if (Input.GetKeyUp(KeyCode.Z))
+            {
+                hitHand.SetActive(false);
+                canHit = false;
+
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.Z))
+        else if (!canHit)
         {
-            hitHand.SetActive(false);
+            timer += Time.deltaTime;
+
+            if (timer >= hitWaitTime)
+            {
+
+                canHit = true;
+                timer = 0;
+            }
         }
 
 
@@ -33,5 +59,5 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-    
+
 }

@@ -177,23 +177,23 @@ public class Troop : MonoBehaviour
         }
 
 
-        if (hit)
-        {
-            if (hit.collider.tag == "Player")
-            {
-                print("Player");
+        //if (hit)
+        //{
+        //    if (hit.collider.tag == "Player")
+        //    {
+        //        //print("Player");
 
-                isInCombat = true;
-                isPatrolling = false;
+        //        isInCombat = true;
+        //        isPatrolling = false;
 
-            }
+        //    }
 
-        }
-        else
-        {
-            isPatrolling = true;
-            isInCombat = false;
-        }
+        //}
+        //else
+        //{
+        //    isPatrolling = true;
+        //    isInCombat = false;
+        //}
 
 
         if (isInCombat)
@@ -257,8 +257,6 @@ public class Troop : MonoBehaviour
         if (col.gameObject.tag == "Hand")
         {
             troopHealthPoints -= playCom.normalDamage;
-
-            //  print("Hand");
 
         }
     }
