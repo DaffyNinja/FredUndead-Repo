@@ -51,6 +51,9 @@ public class Troop : MonoBehaviour
     [Space(5)]
     public PlayerCombat playCom;
 
+    [Header("Effects")]
+    public ParticleSystem bloodEffect;
+
     // Use this for initialization
     void Start()
     {
@@ -235,11 +238,6 @@ public class Troop : MonoBehaviour
                 anim.SetBool("isShooting", true);
             }
 
-
-
-
-
-
         }
     }
 
@@ -257,6 +255,8 @@ public class Troop : MonoBehaviour
         if (col.gameObject.tag == "Hand")
         {
             troopHealthPoints -= playCom.normalDamage;
+
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
 
         }
     }

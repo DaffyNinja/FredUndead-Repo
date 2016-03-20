@@ -50,6 +50,8 @@ public class PlayerMove : MonoBehaviour
     public Transform passedTrans;
     public bool passedLayer;
 
+    PlayerCombat playerComb;
+
     // Use this for initialization
     void Start()
     {
@@ -60,6 +62,8 @@ public class PlayerMove : MonoBehaviour
         sprRnd = GetComponent<SpriteRenderer>();
 
         isUndying = true;
+
+        playerComb = GetComponent<PlayerCombat>();
 
 
 
@@ -73,16 +77,6 @@ public class PlayerMove : MonoBehaviour
 
         Health();
 
-        //if (passedLayer)
-        //{
-        //    Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
-        //}
-        //else if (!passedLayer)
-        //{
-        //    Physics2D.IgnoreCollision(passedTrans.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
-        //}
-
-        //decayBar.value = healthPoints;
 
     }
 
@@ -229,33 +223,25 @@ public class PlayerMove : MonoBehaviour
             // print("Hit");
         }
 
-        //if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
-        //{
-
-        //    passedTrans = col.transform;
-
-        //    passedLayer = true;
-
-        //}
-
-
 
     }
 
-    //void OnCollisionExit2D(Collision2D col)
-    //{
-    //    if (col.collider.gameObject.layer == LayerMask.NameToLayer("Plat"))
-    //    {
-    //        passedTrans = null;
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Gun")
+        {
+            //print("Gun");
 
-    //        passedLayer = false;
+            if (Input.GetKey(KeyCode.C))
+            {
+                print("Pickup");
 
-    //       // Physics2D.IgnoreCollision(col.collider.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+                playerComb.pickedUpWeaponObj = col.gameObject;
+                playerComb.hasWeapon = true;
+            }
+        }
 
-
-    //    }
-
-    //}
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -266,7 +252,7 @@ public class PlayerMove : MonoBehaviour
 
         if (col.gameObject.tag == "LeftSide")
         {
-           // print("Left");
+            // print("Left");
 
             camMove.isLeftSide = true;
             camMove.isRightSide = false;
@@ -280,7 +266,17 @@ public class PlayerMove : MonoBehaviour
             camMove.isLeftSide = false;
         }
 
+        if (col.gameObject.tag == "Gun")
+        {
+            //print("Gun");
+
+           
+
+        }
+
     }
+
+
 
 
 

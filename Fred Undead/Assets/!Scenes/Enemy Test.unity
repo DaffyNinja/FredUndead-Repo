@@ -244,6 +244,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1001 &670899475
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &811396945
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +823,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408472, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11462958, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
       propertyPath: playCom
@@ -817,6 +859,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5018840, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
       propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462958, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
+      propertyPath: bloodEffect
+      value: 
+      objectReference: {fileID: 19879962, guid: 58cf10bcbfc41ba4bae38245e385b571,
+        type: 2}
+    - target: {fileID: 160926, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22475148, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -883,6 +938,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!1 &1356315528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1356315529}
+  m_Layer: 0
+  m_Name: Shoot Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1356315529
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356315528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.98, y: 0.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1405751191}
+  m_RootOrder: 0
+--- !u!4 &1405751191 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+  m_PrefabInternal: {fileID: 670899475}
 --- !u!114 &1611849771 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11410788, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b,

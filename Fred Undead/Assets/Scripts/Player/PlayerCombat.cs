@@ -12,6 +12,12 @@ public class PlayerCombat : MonoBehaviour
 
     float timer;
 
+    [Header("Weapons")]
+    public GameObject pickedUpWeaponObj;
+    public bool hasWeapon;
+
+
+    PlayerMove playerMoveCS;
 
     // Use this for initialization
     void Start()
@@ -21,6 +27,8 @@ public class PlayerCombat : MonoBehaviour
         hitHand.SetActive(false);
 
         canHit = true;
+
+        playerMoveCS = GetComponent<PlayerMove>();
 
     }
 
@@ -53,6 +61,35 @@ public class PlayerCombat : MonoBehaviour
                 timer = 0;
             }
         }
+
+        if (hasWeapon)
+        {
+            pickedUpWeaponObj.transform.parent = gameObject.transform;
+            pickedUpWeaponObj.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+            if (!playerMoveCS.isFacingRight)
+            {
+                pickedUpWeaponObj.transform.position = new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z);
+            }
+            else
+            {
+                pickedUpWeaponObj.transform.position = new Vector3(gameObject.transform.position.x - 1, gameObject.transform.position.y, gameObject.transform.position.z);
+            }
+
+            switch (pickedUpWeaponObj.transform.tag)
+            {
+                case "Gun":
+                    pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
+                    break;
+                default:
+                    print("Error");
+                    break;
+            }
+
+
+        }
+
+
 
 
 
