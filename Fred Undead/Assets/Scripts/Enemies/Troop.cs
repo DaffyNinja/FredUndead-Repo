@@ -17,6 +17,9 @@ public class Troop : MonoBehaviour
 
     public bool isFacingRight;
     float flipMove;
+    [Space(5)]
+    public float rayLength;
+    public LayerMask wallLayer;
 
 
     [Header("Shoot and Find")]
@@ -31,9 +34,7 @@ public class Troop : MonoBehaviour
 
     float shootTimer;
     float pauseShootTimer;
-    [Space(5)]
-    public float rayLength;
-    public LayerMask wallLayer;
+  
 
 
 
@@ -49,6 +50,8 @@ public class Troop : MonoBehaviour
 
     Rigidbody2D rig2D;
     Animator anim;
+
+    BoxCollider2D ownCollider;
 
     [Space(5)]
     public PlayerCombat playCom;
@@ -68,6 +71,8 @@ public class Troop : MonoBehaviour
         troopEnemyBar.maxValue = troopHealthPoints;
 
         bulletCS = bulletObj.GetComponent<Bullet>();
+
+        ownCollider = GetComponent<BoxCollider2D>();
 
     }
 
@@ -108,7 +113,7 @@ public class Troop : MonoBehaviour
         // If the enemy has a wall on the left, move right  
         if (canHitLeft)
         {
-            if (hitLeft)
+            if (hitLeft && hitLeft.collider != ownCollider)
             {
                 //print("Left");
 
@@ -124,7 +129,7 @@ public class Troop : MonoBehaviour
         }
         else if (canHitRight)  // Else if the enemy has a wall on the right, move left
         {
-            if (hitRight)
+            if (hitRight && hitRight.collider != ownCollider)
             {
                 // print("Right");
 
