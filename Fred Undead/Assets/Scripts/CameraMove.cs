@@ -29,9 +29,11 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         mainCam.orthographicSize = cameraOrthSize;
 
         playerPos = playerTrans.transform.position;
+
 
         if (isLeftSide)
         {

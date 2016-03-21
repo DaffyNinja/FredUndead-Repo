@@ -24,6 +24,7 @@ public class Lift : MonoBehaviour
 
     void Update()
     {
+        // If the player goes onto the lift, start moving
         if (startMoving)
         {
 

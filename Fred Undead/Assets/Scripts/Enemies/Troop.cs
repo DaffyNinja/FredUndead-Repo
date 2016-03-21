@@ -9,6 +9,15 @@ public class Troop : MonoBehaviour
     public int troopHealthPoints;
     public Slider troopEnemyBar;
 
+    public bool moveLeft;
+    public bool moveRight;
+
+    public bool canHitLeft;
+    public bool canHitRight;
+
+    public bool isFacingRight;
+    float flipMove;
+
 
     [Header("Shoot and Find")]
     public GameObject bulletObj;
@@ -26,14 +35,7 @@ public class Troop : MonoBehaviour
     public float rayLength;
     public LayerMask wallLayer;
 
-    public bool moveLeft;
-    public bool moveRight;
 
-    public bool canHitLeft;
-    public bool canHitRight;
-
-    public bool isFacingRight;
-    float flipMove;
 
     //Combat States
     [Header("Combat States")]
@@ -67,8 +69,6 @@ public class Troop : MonoBehaviour
 
         bulletCS = bulletObj.GetComponent<Bullet>();
 
-
-
     }
 
     // Update is called once per frame
@@ -80,6 +80,7 @@ public class Troop : MonoBehaviour
 
         Combat();
 
+        // Flips the sprite and enemy
         if (flipMove > 0 && isFacingRight)
         {
             Flip();
@@ -100,9 +101,11 @@ public class Troop : MonoBehaviour
     {
 
 
+        // Raycast for difrent directions the enemy is facing
         RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, rayLength, wallLayer);
         RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, rayLength, wallLayer);
 
+        // If the enemy has a wall on the left, move right  
         if (canHitLeft)
         {
             if (hitLeft)
@@ -119,8 +122,7 @@ public class Troop : MonoBehaviour
 
             }
         }
-
-        if (canHitRight)
+        else if (canHitRight)  // Else if the enemy has a wall on the right, move left
         {
             if (hitRight)
             {
@@ -138,15 +140,16 @@ public class Troop : MonoBehaviour
             }
         }
 
+        // If the enemy is in a patrolling state it moves its patrolling movement
         if (isPatrolling)
         {
-            if (moveRight)
+            if (moveRight) // Moves in the right direction
             {
                 Vector2 moveQauntity = new Vector2(speed, 0);
                 rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
 
             }
-            else if (moveLeft)
+            else if (moveLeft)  // Moves in the left direction
             {
                 Vector2 moveQauntity = new Vector2(-speed, 0);
                 rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
@@ -157,6 +160,7 @@ public class Troop : MonoBehaviour
 
     }
 
+    // Holds what the enemy needs to do associating to its combat state 
     void Combat()
     {
 
@@ -179,31 +183,30 @@ public class Troop : MonoBehaviour
 
         }
 
+        // If the enemy sees the player go into comabat mode
+        if (hit)
+        {
+            if (hit.collider.tag == "Player")
+            {
+                //print("Player");
+                isInCombat = true;
+                isPatrolling = false;
 
-        //if (hit)
-        //{
-        //    if (hit.collider.tag == "Player")
-        //    {
-        //        //print("Player");
+            }
 
-        //        isInCombat = true;
-        //        isPatrolling = false;
-
-        //    }
-
-        //}
-        //else
-        //{
-        //    isPatrolling = true;
-        //    isInCombat = false;
-        //}
+        }
+        else
+        {
+            isPatrolling = true;
+            isInCombat = false;
+        }
 
 
+        // How and when the shoots
         if (isInCombat)
         {
-           pauseShootTimer += Time.deltaTime;
-
-            //print("Shoot " + shootTimer.ToString());
+            
+            pauseShootTimer += Time.deltaTime;
 
             //Shoot
             if (pauseShootTimer >= pauseShootTime)
@@ -213,7 +216,6 @@ public class Troop : MonoBehaviour
             else
             {
                 //startShooting = false;
-
                 anim.SetBool("isShooting", false);
             }
 
@@ -223,9 +225,7 @@ public class Troop : MonoBehaviour
 
                 shootTimer += Time.deltaTime;
 
-              //  print("Pause " + pauseShootTimer.ToString());
-
-                if (shootTimer>= shootTime)
+                if (shootTimer >= shootTime)
                 {
                     shootTimer = 0;
 
@@ -241,6 +241,7 @@ public class Troop : MonoBehaviour
         }
     }
 
+    // Flips the enemy objects
     void Flip()
     {
         isFacingRight = !isFacingRight;
@@ -249,7 +250,7 @@ public class Troop : MonoBehaviour
         transform.localScale = theScale;
     }
 
-
+    // If then enemy has been hit by the player, it gets dealt damage
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Hand")

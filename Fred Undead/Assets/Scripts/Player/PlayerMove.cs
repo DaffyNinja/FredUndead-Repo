@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     public bool isGhoul;
     public bool isUndying;
 
-    public Sprite crawlerSpr;
+    public Sprite crawlerSpr;     
     public Sprite zombieSpr;
     public Sprite undyingSpr;
 
@@ -64,9 +64,7 @@ public class PlayerMove : MonoBehaviour
         isUndying = true;
 
         playerComb = GetComponent<PlayerCombat>();
-
-
-
+  
 
     }
 
@@ -82,16 +80,14 @@ public class PlayerMove : MonoBehaviour
 
     void Controls()
     {
-        // PC                                                        
+        // PC Controls
+        // Moves the player when they hold down the movemet buttons                                                       
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-
             Vector2 moveQauntity = new Vector2(speed, 0);
             rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
 
-
             flipMove = 1;
-
 
             // playerAnimator.SetBool("isRunning", true);
 
@@ -100,33 +96,24 @@ public class PlayerMove : MonoBehaviour
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
 
-
             Vector2 moveQauntity = new Vector2(-speed, 0);
             rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
 
             flipMove = -1;
 
             //playerAnimator.SetBool("isRunning", true);
-
-
         }
 
 
 
-
-
-        // Xbox Controller
+        // Xbox Controller Controls
         if (Input.GetAxis("Horizontal") >= 1)
         {
-            // print("Right");
 
             Vector2 moveQauntity = new Vector2(speed, 0);
             rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
 
-
             flipMove = 1;
-
 
             // playerAnimator.SetBool("isRunning", true);
 
@@ -135,39 +122,25 @@ public class PlayerMove : MonoBehaviour
         {
             // print("Left");
 
-
             Vector2 moveQauntity = new Vector2(-speed, 0);
             rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
 
             flipMove = -1;
 
             // playerAnimator.SetBool("isRunning", true);
-
         }
 
 
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, jumpRayLength, groundLayer);  //PlayerMask and rayLength are public variables that need to be set 
-                                                                                                             // Debug.DrawRay(transform.position, Vector2.left, Color.red, jumpRayLength);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, jumpRayLength, groundLayer);  // Raycast hit pointing down to indicate that i am on the ground
 
         if (hit)
         {
-            // print("Ray");
-
-            //print(hit.ToString());
-
             if (Input.GetButtonDown("Jump"))
             {
-
-
                 rig2D.velocity = Vector2.up * jumpHeight;
 
                 // playerAnimator.SetBool("isJumping", true);
-
                 isJumping = true;
-
-
             }
             else
             {
@@ -176,8 +149,7 @@ public class PlayerMove : MonoBehaviour
 
         }
 
-
-
+        // Which the way the plauer chracter flips
         if (flipMove > 0 && isFacingRight)
         {
             Flip();
@@ -190,7 +162,7 @@ public class PlayerMove : MonoBehaviour
 
     void Health()
     {
-
+        // The many diffrent states the player changes into
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             sprRnd.sprite = undyingSpr;
@@ -207,6 +179,7 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    // Flips the player object
     void Flip()
     {
         isFacingRight = !isFacingRight;
@@ -226,6 +199,7 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    // If the player is inside the gun trigger area, they can pick it up 
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Gun")
@@ -243,6 +217,7 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Death")
@@ -250,6 +225,7 @@ public class PlayerMove : MonoBehaviour
             transform.position = checkPointPos.position;
         }
 
+        
         if (col.gameObject.tag == "LeftSide")
         {
             // print("Left");
@@ -264,14 +240,6 @@ public class PlayerMove : MonoBehaviour
 
             camMove.isRightSide = true;
             camMove.isLeftSide = false;
-        }
-
-        if (col.gameObject.tag == "Gun")
-        {
-            //print("Gun");
-
-           
-
         }
 
     }
