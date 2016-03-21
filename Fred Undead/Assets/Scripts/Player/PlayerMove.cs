@@ -225,7 +225,12 @@ public class PlayerMove : MonoBehaviour
             transform.position = checkPointPos.position;
         }
 
-        
+        if (col.gameObject.tag == "Enemy Hand")
+        {
+            print("Been Hit");
+
+        }
+
         if (col.gameObject.tag == "LeftSide")
         {
             // print("Left");

@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class EnemyTest : MonoBehaviour {
+public class EnemyTest : MonoBehaviour
+{
 
     [Header("Movement")]
     public float speed;
@@ -20,8 +21,23 @@ public class EnemyTest : MonoBehaviour {
     public LayerMask wallLayer;
 
     public bool isPatrolling;
+    public bool isInCombat;
 
-  
+
+    [Header("Combat")]
+    public int normalDamage;
+    GameObject hitHand;
+    public float hitWaitTime;
+    public bool canHit;
+    float timer;
+
+
+    public float sightLength;
+    public LayerMask playerLayer;
+
+    bool startFighting;
+
+    RaycastHit2D hit;
 
     [Space(5)]
     public int enemyHealth;
@@ -32,22 +48,28 @@ public class EnemyTest : MonoBehaviour {
     Rigidbody2D rig2D;
 
     BoxCollider2D ownCollider;
+    BoxCollider2D handCol;
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
+        hitHand = transform.GetChild(0).gameObject;
+        handCol = hitHand.GetComponent<BoxCollider2D>();
+
         ownCollider = GetComponent<BoxCollider2D>();
 
         enemyHealthBar.maxValue = enemyHealth;
 
         rig2D = GetComponent<Rigidbody2D>();
-	}
+    }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+
+        Combat();
 
         enemyHealthBar.value = enemyHealth;
 
@@ -117,6 +139,61 @@ public class EnemyTest : MonoBehaviour {
             }
 
         }
+
+    }
+
+    void Combat()
+    {
+
+        RaycastHit2D comHitLeft = Physics2D.Raycast(transform.position, Vector2.left, sightLength, playerLayer);
+        RaycastHit2D comHitRight = Physics2D.Raycast(transform.position, Vector2.right, sightLength, playerLayer);
+
+        // If the enemy sees the player go into comabat mode
+        if (comHitLeft && comHitLeft.collider != ownCollider || comHitRight && comHitRight.collider != ownCollider)
+        {
+
+            //   print("Player");
+
+            isInCombat = true;
+            isPatrolling = false;
+
+
+
+        }
+        else
+        {
+            isPatrolling = true;
+            isInCombat = false;
+
+
+            //canHit = false;
+
+        }
+
+        // How and when the shoots
+        if (isInCombat)
+        {
+            if (canHit)
+            {
+                hitHand.SetActive(true);
+                timer += Time.deltaTime;
+
+                if (timer >= hitWaitTime)
+                {
+                    hitHand.SetActive(false);
+
+                    if (timer >= hitWaitTime + hitWaitTime)
+                    {
+                        timer = 0;
+                    }
+                }
+
+            }
+
+            // print(timer.ToString());
+
+        }
+
 
     }
 

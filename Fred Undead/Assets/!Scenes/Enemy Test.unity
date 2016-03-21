@@ -587,13 +587,9 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 142488, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22495298, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 11409274, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
@@ -1028,7 +1024,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.0720644
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1060,11 +1056,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 135434, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11410788, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: hitWaitTime
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 135434, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}

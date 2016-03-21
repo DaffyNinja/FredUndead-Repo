@@ -12,6 +12,7 @@ TagManager:
   - LeftSide
   - RightSide
   - Gun
+  - Enemy Hand
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Wall
   - Bullet
   - Plat
-  - 
+  - Player
   - 
   - 
   - 

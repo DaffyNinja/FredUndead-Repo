@@ -34,7 +34,7 @@ public class Troop : MonoBehaviour
 
     float shootTimer;
     float pauseShootTimer;
-  
+
 
 
 
@@ -189,7 +189,7 @@ public class Troop : MonoBehaviour
         }
 
         // If the enemy sees the player go into comabat mode
-        if (hit)
+        if (hit && hit.collider != ownCollider)
         {
             if (hit.collider.tag == "Player")
             {
@@ -210,7 +210,7 @@ public class Troop : MonoBehaviour
         // How and when the shoots
         if (isInCombat)
         {
-            
+
             pauseShootTimer += Time.deltaTime;
 
             //Shoot
