@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour
     public Sprite undyingSpr;
 
     SpriteRenderer sprRnd;
-    //public Slider decayBar;
+    public Slider decayBar;
 
     [Space(5)]
     public CameraMove camMove;
@@ -64,6 +64,8 @@ public class PlayerMove : MonoBehaviour
         isUndying = true;
 
         playerComb = GetComponent<PlayerCombat>();
+
+        decayBar.maxValue = healthPoints;
   
 
     }
@@ -71,6 +73,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        decayBar.value = healthPoints;
+
         Controls();
 
         Health();
@@ -228,6 +232,8 @@ public class PlayerMove : MonoBehaviour
         if (col.gameObject.tag == "Enemy Hand")
         {
             print("Been Hit");
+
+            healthPoints -= 5;
 
         }
 
