@@ -90,11 +90,6 @@ public class PlayerCombat : MonoBehaviour
 
         }
 
-
-
-
-
-
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -110,7 +105,6 @@ public class PlayerCombat : MonoBehaviour
         {
             //print("Been Hit");
 
-           
             playerMoveCS.healthPoints -= 5;
 
         }
