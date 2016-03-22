@@ -97,5 +97,25 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Bullet")
+        {
+           // print("Bullet Hit");
+
+            playerMoveCS.healthPoints -= 5;
+        }
+
+        if (col.gameObject.tag == "Enemy Hand")
+        {
+            //print("Been Hit");
+
+           
+            playerMoveCS.healthPoints -= 5;
+
+        }
+
+    }
+
 
 }

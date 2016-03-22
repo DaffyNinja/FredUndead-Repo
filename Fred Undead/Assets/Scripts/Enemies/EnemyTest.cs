@@ -75,7 +75,11 @@ public class EnemyTest : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
-            print("Dead");
+            //print("Dead");
+
+            Destroy(gameObject);
+
+
         }
 
 
@@ -205,13 +209,21 @@ public class EnemyTest : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(),true);
+        }
+    }
+
 
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Hand")
         {
-            print("Hit");
+          //  print("Hit");
 
             enemyHealth -= damageCount;
         }

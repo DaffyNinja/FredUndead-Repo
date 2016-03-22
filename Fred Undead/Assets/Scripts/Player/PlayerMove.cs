@@ -193,16 +193,6 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Bullet")
-        {
-            // print("Hit");
-        }
-
-
-    }
-
     // If the player is inside the gun trigger area, they can pick it up 
     void OnTriggerStay2D(Collider2D col)
     {
@@ -229,29 +219,21 @@ public class PlayerMove : MonoBehaviour
             transform.position = checkPointPos.position;
         }
 
-        if (col.gameObject.tag == "Enemy Hand")
-        {
-            print("Been Hit");
+        //if (col.gameObject.tag == "LeftSide")
+        //{
+        //    // print("Left");
 
-            healthPoints -= 5;
+        //    camMove.isLeftSide = true;
+        //    camMove.isRightSide = false;
 
-        }
+        //}
+        //else if (col.gameObject.tag == "RightSide")
+        //{
+        //    //print("Right");
 
-        if (col.gameObject.tag == "LeftSide")
-        {
-            // print("Left");
-
-            camMove.isLeftSide = true;
-            camMove.isRightSide = false;
-
-        }
-        else if (col.gameObject.tag == "RightSide")
-        {
-            //print("Right");
-
-            camMove.isRightSide = true;
-            camMove.isLeftSide = false;
-        }
+        //    camMove.isRightSide = true;
+        //    camMove.isLeftSide = false;
+        //}
 
     }
 

@@ -29,6 +29,8 @@ public class Troop : MonoBehaviour
     public float gunSightLength;
     public bool startShooting;
 
+    public LayerMask playerLayer;
+
     public float shootTime;
     public float pauseShootTime;
 
@@ -169,41 +171,29 @@ public class Troop : MonoBehaviour
     void Combat()
     {
 
-        if (!isFacingRight)
-        {
-            hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, gunSightLength);
-
-            bulletCS.moveLeft = true;
-            bulletCS.moveRight = false;
-
-            // Debug.DrawRay(transform.position, Vector2.left, Color.green, hit.distance);
-        }
-        else
-        {
-            hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, gunSightLength);
-            // Debug.DrawRay(transform.position, Vector2.right, Color.green,hit.distance);
-
-            bulletCS.moveRight = true;
-            bulletCS.moveLeft = false;
-
-        }
+        RaycastHit2D comHitLeft = Physics2D.Raycast(transform.position, Vector2.left, gunSightLength, playerLayer);
+        RaycastHit2D comHitRight = Physics2D.Raycast(transform.position, Vector2.right, gunSightLength, playerLayer);
 
         // If the enemy sees the player go into comabat mode
-        if (hit && hit.collider != ownCollider)
+        if (comHitLeft && comHitLeft.collider != ownCollider || comHitRight && comHitRight.collider != ownCollider)
         {
-            if (hit.collider.tag == "Player")
-            {
-                //print("Player");
-                isInCombat = true;
-                isPatrolling = false;
 
-            }
+            print("Player");
+
+            isInCombat = true;
+            isPatrolling = false;
+
+
 
         }
         else
         {
             isPatrolling = true;
             isInCombat = false;
+
+
+            //canHit = false;
+
         }
 
 
@@ -253,6 +243,14 @@ public class Troop : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
+        }
     }
 
     // If then enemy has been hit by the player, it gets dealt damage
