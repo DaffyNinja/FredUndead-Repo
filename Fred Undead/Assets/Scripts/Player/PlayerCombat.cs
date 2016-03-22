@@ -38,13 +38,13 @@ public class PlayerCombat : MonoBehaviour
     {
         if (canHit)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) ||Input.GetButtonDown("Joystick X"))
             {
                 hitHand.SetActive(true);
                 
 
             }
-            else if (Input.GetKeyUp(KeyCode.Z))
+            else if (Input.GetKeyUp(KeyCode.Z) || Input.GetButtonUp("Joystick X"))
             {
                 hitHand.SetActive(false);
                 canHit = false;

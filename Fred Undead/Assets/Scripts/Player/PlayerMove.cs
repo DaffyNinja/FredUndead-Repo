@@ -139,7 +139,7 @@ public class PlayerMove : MonoBehaviour
 
         if (hit)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Joystick A"))
             {
                 rig2D.velocity = Vector2.up * jumpHeight;
 
