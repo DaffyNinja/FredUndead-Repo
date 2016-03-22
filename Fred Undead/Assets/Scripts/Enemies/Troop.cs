@@ -178,12 +178,10 @@ public class Troop : MonoBehaviour
         if (comHitLeft && comHitLeft.collider != ownCollider || comHitRight && comHitRight.collider != ownCollider)
         {
 
-            print("Player");
+            //print("Player");
 
             isInCombat = true;
             isPatrolling = false;
-
-
 
         }
         else

@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492046, guid: 9ac229d734d919445876f7a939b05401, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 22492046, guid: 9ac229d734d919445876f7a939b05401, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -317,7 +317,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 492700, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 169038, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
       propertyPath: m_IsActive
@@ -851,28 +851,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1611849771}
     - target: {fileID: 22408472, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11462958, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 160926, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22475148, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22408472, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11462958, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
-      propertyPath: playerLayer.m_Bits
-      value: 16384
+    - target: {fileID: 22408472, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72a5dc6c3a3e6454ea5952e4b7561abf, type: 2}
