@@ -38,10 +38,10 @@ public class PlayerCombat : MonoBehaviour
     {
         if (canHit)
         {
-            if (Input.GetKeyDown(KeyCode.Z) ||Input.GetButtonDown("Joystick X"))
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Joystick X"))
             {
                 hitHand.SetActive(true);
-                
+
 
             }
             else if (Input.GetKeyUp(KeyCode.Z) || Input.GetButtonUp("Joystick X"))
@@ -82,6 +82,9 @@ public class PlayerCombat : MonoBehaviour
                 case "Gun":
                     pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
                     break;
+                case "BaseBall Bat":
+                    pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;
+                    break;
                 default:
                     print("Error");
                     break;
@@ -92,15 +95,58 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
+
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Bullet")
         {
-           // print("Bullet Hit");
+            // print("Bullet Hit");
 
             playerMoveCS.healthPoints -= 5;
         }
 
+    }
+
+    // If the player is inside the gun trigger area, they can pick it up 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "Gun":
+                if (Input.GetKey(KeyCode.C))
+                {
+                    print("Pickup");
+
+                    pickedUpWeaponObj = col.gameObject;
+                    hasWeapon = true;
+                }
+                break;
+
+            case "BaseBall Bat":
+                if (Input.GetKey(KeyCode.C))
+                {
+                    print("Pickup");
+
+                    pickedUpWeaponObj = col.gameObject;
+                    hasWeapon = true;
+                }
+                break;
+
+            default:
+                print("Error!");
+                break;
+        }
+        {
+            //print("Gun");
+
+
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
         if (col.gameObject.tag == "Enemy Hand")
         {
             //print("Been Hit");
@@ -108,8 +154,5 @@ public class PlayerCombat : MonoBehaviour
             playerMoveCS.healthPoints -= 5;
 
         }
-
     }
-
-
 }

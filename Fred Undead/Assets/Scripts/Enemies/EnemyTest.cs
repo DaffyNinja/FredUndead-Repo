@@ -156,7 +156,7 @@ public class EnemyTest : MonoBehaviour
         if (comHitLeft && comHitLeft.collider != ownCollider || comHitRight && comHitRight.collider != ownCollider)
         {
 
-            //   print("Player");
+            //print("Player");
 
             isInCombat = true;
             isPatrolling = false;
@@ -213,7 +213,7 @@ public class EnemyTest : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(),true);
+            Physics2D.IgnoreCollision(col.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
         }
     }
 
@@ -223,7 +223,7 @@ public class EnemyTest : MonoBehaviour
     {
         if (col.gameObject.tag == "Hand")
         {
-          //  print("Hit");
+            //  print("Hit");
 
             enemyHealth -= damageCount;
         }

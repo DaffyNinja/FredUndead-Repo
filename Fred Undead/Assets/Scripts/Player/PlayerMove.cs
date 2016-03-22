@@ -73,7 +73,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        decayBar.value = healthPoints;
+        
 
         Controls();
 
@@ -166,6 +166,14 @@ public class PlayerMove : MonoBehaviour
 
     void Health()
     {
+
+        decayBar.value = healthPoints;
+
+        if (healthPoints <= 0)
+        {
+            print("Dead");
+        }
+
         // The many diffrent states the player changes into
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -192,24 +200,6 @@ public class PlayerMove : MonoBehaviour
         transform.localScale = theScale;
     }
 
-
-    // If the player is inside the gun trigger area, they can pick it up 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Gun")
-        {
-            //print("Gun");
-
-            if (Input.GetKey(KeyCode.C))
-            {
-                print("Pickup");
-
-                playerComb.pickedUpWeaponObj = col.gameObject;
-                playerComb.hasWeapon = true;
-            }
-        }
-
-    }
 
     
     void OnTriggerEnter2D(Collider2D col)

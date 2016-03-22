@@ -13,6 +13,7 @@ TagManager:
   - RightSide
   - Gun
   - Enemy Hand
+  - BaseBall Bat
   layers:
   - Default
   - TransparentFX
