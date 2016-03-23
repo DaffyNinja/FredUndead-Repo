@@ -227,5 +227,18 @@ public class EnemyTest : MonoBehaviour
 
             enemyHealth -= damageCount;
         }
+
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.GetComponent<BaseBallBat>().dealDamge)
+        {
+            //print("baseball");
+
+            enemyHealth -= col.gameObject.GetComponent<BaseBallBat>().damgeToDeal;
+
+            col.gameObject.GetComponent<BaseBallBat>().useNum -= 1;
+        }
     }
 }

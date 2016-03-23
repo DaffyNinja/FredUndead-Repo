@@ -124,11 +124,15 @@ public class PlayerCombat : MonoBehaviour
                 break;
 
             case "BaseBall Bat":
+               // print("Baseball");                                   
                 if (Input.GetKey(KeyCode.C))
                 {
                     print("Pickup");
 
                     pickedUpWeaponObj = col.gameObject;
+
+                  //  pickedUpWeaponObj = col.transform.parent.gameObject;
+                    //pickedUpWeaponObj.transform.GetChild(0).gameObject.SetActive(false);
                     hasWeapon = true;
                 }
                 break;
