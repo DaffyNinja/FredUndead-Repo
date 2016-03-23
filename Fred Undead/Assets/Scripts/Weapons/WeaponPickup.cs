@@ -48,6 +48,9 @@ public class WeaponPickup : MonoBehaviour
                     case "Gun":
                         weaponObj.GetComponent<Pistol>().canUse = true;
                         break;
+                    case "BaseBall Bat":
+                        weaponObj.GetComponent<BaseBallBat>().canUse = true;
+                        break;
                     default:
                         print("Error");
                         break;

@@ -23,6 +23,8 @@ public class BaseBallBat : MonoBehaviour
 
         baseBallHitTrig = transform.GetChild(0);
 
+        baseBallHitTrig.gameObject.SetActive(false);
+
         // polyCol.enabled = false;
 
     }
@@ -34,15 +36,19 @@ public class BaseBallBat : MonoBehaviour
         {
             //polyCol.enabled = true;
 
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKey(KeyCode.X))
             {
-                transform.eulerAngles = new Vector3(0, 0, -35);
+                // transform.eulerAngles = new Vector3(0, 0, -35);
+
+                baseBallHitTrig.gameObject.SetActive(true);
 
                 dealDamge = true;
             }
             else if (Input.GetKeyUp(KeyCode.X))
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                // transform.eulerAngles = new Vector3(0, 0, 0);
+
+                baseBallHitTrig.gameObject.SetActive(false);
 
                 dealDamge = false;
             }
@@ -60,23 +66,37 @@ public class BaseBallBat : MonoBehaviour
     {
         if (dealDamge)
         {
-            if (col.gameObject.name == "Tropper")
+            if (col == baseBallHitTrig.GetComponent<Collider2D>())
             {
+                print("Hit");
+
                 useNum--;
 
                 col.gameObject.GetComponent<Troop>().troopHealthPoints -= damgeToDeal;
 
             }
-            if (col.gameObject.name == "Enemy")
+
+            if (col == baseBallHitTrig.GetComponent<BoxCollider2D>())
             {
-                print("Damage");
+                if (col.gameObject.tag == "Enemy")
+                {
+                    print("Damage");
 
-                
-
-                col.gameObject.GetComponent<EnemyTest>().enemyHealth -= damgeToDeal;
-
-
+                    col.gameObject.GetComponent<EnemyTest>().enemyHealth -= damgeToDeal;
+                }
             }
+
+            //if (baseBallHitTrig.GetComponent<Collider2D>().tag == "Enemy")
+            //{
+            //    print("Damage");
+
+
+
+            //    col.gameObject.GetComponent<EnemyTest>().enemyHealth -= damgeToDeal;
+
+
+            //}
+
         }
     }
 }
