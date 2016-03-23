@@ -218,11 +218,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22494156, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22494156, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 173720, guid: 3ffdefcb9c4007c4f99aac1d5e0920a0, type: 2}
       propertyPath: m_IsActive
@@ -312,11 +312,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22418536, guid: 9ac229d734d919445876f7a939b05401, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22418536, guid: 9ac229d734d919445876f7a939b05401, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac229d734d919445876f7a939b05401, type: 2}
@@ -422,11 +422,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 463842, guid: 69819467c994ebb4991091749aa133fb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.518
+      value: -3.878
       objectReference: {fileID: 0}
     - target: {fileID: 463842, guid: 69819467c994ebb4991091749aa133fb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.603
+      value: -0.941
       objectReference: {fileID: 0}
     - target: {fileID: 463842, guid: 69819467c994ebb4991091749aa133fb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -452,10 +452,65 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 11432766, guid: 69819467c994ebb4991091749aa133fb, type: 2}
-      propertyPath: damgeToDeal
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69819467c994ebb4991091749aa133fb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2055423198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2055423199}
+  - 61: {fileID: 2055423201}
+  - 114: {fileID: 2055423200}
+  m_Layer: 0
+  m_Name: Weapon Pickup
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2055423199
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055423198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5942993, y: -1.539974, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+--- !u!114 &2055423200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055423198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8323c9ccfd67946810542ffee77bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponsList:
+  - {fileID: 193700, guid: 69819467c994ebb4991091749aa133fb, type: 2}
+  - {fileID: 169038, guid: a85c3c0904a699946ac1b80f80674140, type: 2}
+  weaponNum: 0
+  weaponObj: {fileID: 0}
+--- !u!61 &2055423201
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055423198}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.5}

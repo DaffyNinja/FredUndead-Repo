@@ -232,13 +232,13 @@ public class EnemyTest : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.GetComponent<BaseBallBat>().dealDamge)
-        {
-            //print("baseball");
+        //if (col.gameObject.GetComponent<BaseBallBat>().dealDamge)
+        //{
+        //    //print("baseball");
 
-            enemyHealth -= col.gameObject.GetComponent<BaseBallBat>().damgeToDeal;
+        //    enemyHealth -= col.gameObject.GetComponent<BaseBallBat>().damgeToDeal;
 
-            col.gameObject.GetComponent<BaseBallBat>().useNum -= 1;
-        }
+        //    col.gameObject.GetComponent<BaseBallBat>().useNum -= 1;
+        //}
     }
 }

@@ -12,7 +12,7 @@ public class BaseBallBat : MonoBehaviour
 
     public bool dealDamge;
 
-
+    public Transform baseBallHitTrig;
 
     PolygonCollider2D polyCol;
 
@@ -20,6 +20,8 @@ public class BaseBallBat : MonoBehaviour
     void Start()
     {
         polyCol = GetComponent<PolygonCollider2D>();
+
+        baseBallHitTrig = transform.GetChild(0);
 
         // polyCol.enabled = false;
 
@@ -64,10 +66,7 @@ public class BaseBallBat : MonoBehaviour
 
                 col.gameObject.GetComponent<Troop>().troopHealthPoints -= damgeToDeal;
 
-
             }
-
-
             if (col.gameObject.name == "Enemy")
             {
                 print("Damage");

@@ -65,8 +65,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (hasWeapon)
         {
-            pickedUpWeaponObj.transform.parent = gameObject.transform;
-            pickedUpWeaponObj.GetComponent<SpriteRenderer>().sortingOrder = 2;
+          
 
             if (!playerMoveCS.isFacingRight)
             {
@@ -104,47 +103,6 @@ public class PlayerCombat : MonoBehaviour
             // print("Bullet Hit");
 
             playerMoveCS.healthPoints -= 5;
-        }
-
-    }
-
-    // If the player is inside the gun trigger area, they can pick it up 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        switch (col.gameObject.tag)
-        {
-            case "Gun":
-                if (Input.GetKey(KeyCode.C))
-                {
-                    print("Pickup");
-
-                    pickedUpWeaponObj = col.gameObject;
-                    hasWeapon = true;
-                }
-                break;
-
-            case "BaseBall Bat":
-               // print("Baseball");                                   
-                if (Input.GetKey(KeyCode.C))
-                {
-                    print("Pickup");
-
-                    pickedUpWeaponObj = col.gameObject;
-
-                  //  pickedUpWeaponObj = col.transform.parent.gameObject;
-                    //pickedUpWeaponObj.transform.GetChild(0).gameObject.SetActive(false);
-                    hasWeapon = true;
-                }
-                break;
-
-            default:
-                print("Error!");
-                break;
-        }
-        {
-            //print("Gun");
-
-
         }
 
     }

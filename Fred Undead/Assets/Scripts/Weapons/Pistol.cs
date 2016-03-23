@@ -18,7 +18,6 @@ public class Pistol : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
         if (canUse)
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
