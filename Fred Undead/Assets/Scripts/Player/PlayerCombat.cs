@@ -83,6 +83,8 @@ public class PlayerCombat : MonoBehaviour
                     break;
                 case "BaseBall Bat":
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;
+                    pickedUpWeaponObj.GetComponent<BaseBallBat>().playerCom = GetComponent<PlayerCombat>();
+
                     break;
                 default:
                     print("Error");

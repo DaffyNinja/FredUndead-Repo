@@ -28,6 +28,7 @@ public class Troop : MonoBehaviour
     [Space(5)]
     public float gunSightLength;
     public bool startShooting;
+    public bool canShoot;
 
     public LayerMask playerLayer;
 
@@ -85,7 +86,10 @@ public class Troop : MonoBehaviour
 
         Move();
 
-        Combat();
+        if (canShoot)
+        {
+            Combat();
+        }
 
         // Flips the sprite and enemy
         if (flipMove > 0 && isFacingRight)

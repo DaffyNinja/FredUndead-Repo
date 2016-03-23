@@ -16,6 +16,8 @@ public class BaseBallBat : MonoBehaviour
 
     PolygonCollider2D polyCol;
 
+    public PlayerCombat playerCom;
+
     // Use this for initialization
     void Start()
     {
@@ -59,6 +61,10 @@ public class BaseBallBat : MonoBehaviour
             canUse = false;
 
             dealDamge = false;
+
+            playerCom.hasWeapon = false;
+
+            Destroy(gameObject);
         }
     }
 

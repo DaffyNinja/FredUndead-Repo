@@ -21,10 +21,23 @@ public class BatHitTrig : MonoBehaviour {
     {
         if (col.gameObject.tag == "Enemy")
         {
+            if (col.gameObject.GetComponent<EnemyTest>() != null)
+            {
+                print("Enemy");
 
-            print("Damage");
+                col.gameObject.GetComponent<EnemyTest>().enemyHealth -= baseBat.damgeToDeal;
 
-            col.gameObject.GetComponent<EnemyTest>().enemyHealth -= baseBat.damgeToDeal;
+                baseBat.useNum -= 1;
+            }
+            else
+            {
+                print("Troop");
+
+                col.gameObject.GetComponent<Troop>().troopHealthPoints -= baseBat.damgeToDeal;
+
+                baseBat.useNum -= 1;
+
+            }
 
         }
 

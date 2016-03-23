@@ -50,6 +50,7 @@ public class WeaponPickup : MonoBehaviour
                         break;
                     case "BaseBall Bat":
                         weaponObj.GetComponent<BaseBallBat>().canUse = true;
+                        
                         break;
                     default:
                         print("Error");

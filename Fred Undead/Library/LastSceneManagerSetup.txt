@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/!Scenes/Prototypes/Weapons.unity
+- path: Assets/!Scenes/Level 1 - Little Weapons.unity
   isLoaded: 1
   isActive: 1
