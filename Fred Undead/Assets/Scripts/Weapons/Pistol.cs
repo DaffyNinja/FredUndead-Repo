@@ -1,32 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pistol : MonoBehaviour {
+public class Pistol : MonoBehaviour
+{
+    public float bulletSpeed;
 
-    public GameObject bulletObj;
-    public Transform shotArea;
+    public float lifeTime;
+    float timer;
+
+    public Transform shootPos;
+    public Rigidbody2D bullet;
+
+    public PlayerMove playerObj;
+
+    bool created;
+
 
     public bool canUse;
 
-	// Use this for initialization
-	void Start ()
+
+    void Start()
     {
-        shotArea = transform.GetChild(0);
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        shootPos = transform.GetChild(0);
+
+        created = true;
+    }
+
+    void Fire()
+    {
+        Rigidbody2D bulletClone = (Rigidbody2D)Instantiate(bullet, shootPos.position, Quaternion.identity);
+
+        if (playerObj.isFacingRight)
+        {
+            bulletClone.velocity = transform.TransformDirection((Vector3.left * bulletSpeed * Time.deltaTime));
+        }
+        else
+        {
+            bulletClone.velocity = transform.TransformDirection((Vector3.right * bulletSpeed * Time.deltaTime));
+        }
+
+    }
+
+    void Update()
     {
         if (canUse)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                print("Fire");
 
-                //Instantiate(bulletObj, shotArea.transform.position, Quaternion.identity);
-            }
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+
+                Fire();
         }
-	
-	}
+    }
 }
+

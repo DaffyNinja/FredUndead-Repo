@@ -80,6 +80,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 case "Gun":
                     pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
+                    pickedUpWeaponObj.GetComponent<Pistol>().playerObj = playerMoveCS;
                     break;
                 case "BaseBall Bat":
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;

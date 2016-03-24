@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour
+public class PistolBullet : MonoBehaviour
 {
 
     public float speed;
@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
 
     public bool created;
 
-    
 
     Rigidbody2D rig2D;
 
@@ -30,6 +29,10 @@ public class Bullet : MonoBehaviour
     {
 
         transform.Translate(transform.forward * speed * Time.deltaTime);
+
+        // rig2D.velocity = transform.forward * Time.deltaTime;
+
+        //  rig2D.velocity = new Vector2(speed * Time.deltaTime, 0);
 
 
         //  print(timer.ToString());
@@ -51,6 +54,5 @@ public class Bullet : MonoBehaviour
         }
 
     }
-
-
 }
+

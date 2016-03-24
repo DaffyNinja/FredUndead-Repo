@@ -29,7 +29,7 @@ public class BatHitTrig : MonoBehaviour {
 
                 baseBat.useNum -= 1;
             }
-            else
+            else if (col.gameObject.GetComponent<Troop>() != null)
             {
                 print("Troop");
 

@@ -10,11 +10,10 @@ GameObject:
   - 4: {fileID: 412480}
   - 212: {fileID: 21275464}
   - 61: {fileID: 6112482}
-  - 50: {fileID: 5057948}
-  - 114: {fileID: 11499976}
+  - 50: {fileID: 5029246}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: Pistol Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,19 +25,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1945.2997, y: -0.50947756, z: 0.57995415}
+  m_LocalPosition: {x: -1966.0203, y: -11.689212, z: 93.461395}
   m_LocalScale: {x: 0.040852845, y: 0.022423187, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5057948
+--- !u!50 &5029246
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142272}
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -62,20 +61,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 8, y: 6}
---- !u!114 &11499976
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6297db26b17c24468e990e7e45297b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -1.25
-  lifeTime: 1
-  created: 0
 --- !u!212 &21275464
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -103,7 +88,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 56430a1c7ec3d814ca1ad2367171a2b4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9852941, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
