@@ -262,7 +262,7 @@ public class Troop : MonoBehaviour
         {
             troopHealthPoints -= playCom.normalDamage;
 
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+           // Instantiate(bloodEffect, transform.position, Quaternion.identity);
 
 
 
@@ -272,7 +272,7 @@ public class Troop : MonoBehaviour
         {
             troopHealthPoints -= 10;
 
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+           // Instantiate(bloodEffect, transform.position, Quaternion.identity);
         }
     }
 

@@ -53,6 +53,8 @@ public class EnemyTest : MonoBehaviour
     [Header("Effects")]
     public ParticleSystem bloodEffect;
 
+    bool startParticle;
+
 
     // Use this for initialization
     void Start()
@@ -65,6 +67,8 @@ public class EnemyTest : MonoBehaviour
         enemyHealthBar.maxValue = enemyHealth;
 
         rig2D = GetComponent<Rigidbody2D>();
+
+        bloodEffect = bloodEffect.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -83,6 +87,19 @@ public class EnemyTest : MonoBehaviour
             Destroy(gameObject);
 
 
+        }
+
+
+
+        if (startParticle)
+        {
+            print("Particle");
+
+
+
+            bloodEffect.Emit(1);
+
+            startParticle = false;
         }
 
 
@@ -226,24 +243,32 @@ public class EnemyTest : MonoBehaviour
     {
         if (col.gameObject.tag == "Hand")
         {
-            //  print("Hit");
+            print("Hit");
 
             enemyHealth -= damageCount;
 
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+           
+            bloodEffect.Play();
+
+
+            //if (!bloodEffect.isPlaying)
+            //{
+            //    print("Play");   
+            //    bloodEffect.Play();
+            //}
         }
 
         if (col.gameObject.tag == "Pistol Bullet")
         {
-           // print("Hit");
+            // print("Hit");
 
             enemyHealth -= 10;
 
-            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            //Instantiate(bloodEffect, transform.position, Quaternion.identity);
 
         }
 
     }
 
-  
+
 }

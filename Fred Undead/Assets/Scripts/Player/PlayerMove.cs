@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -171,7 +172,9 @@ public class PlayerMove : MonoBehaviour
 
         if (healthPoints <= 0)
         {
-            print("Dead");
+            //print("Dead");
+
+            SceneManager.LoadScene(0);
         }
 
         // The many diffrent states the player changes into
