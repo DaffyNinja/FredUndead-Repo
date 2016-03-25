@@ -65,7 +65,6 @@ public class PlayerCombat : MonoBehaviour
 
         if (hasWeapon)
         {
-          
 
             if (!playerMoveCS.isFacingRight)
             {
@@ -81,6 +80,7 @@ public class PlayerCombat : MonoBehaviour
                 case "Gun":
                     pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
                     pickedUpWeaponObj.GetComponent<Pistol>().playerObj = playerMoveCS;
+                    pickedUpWeaponObj.GetComponent<Pistol>().playerCom = GetComponent<PlayerCombat>();
                     break;
                 case "BaseBall Bat":
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;

@@ -228,6 +228,14 @@ public class EnemyTest : MonoBehaviour
             enemyHealth -= damageCount;
         }
 
+        if (col.gameObject.tag == "Pistol Bullet")
+        {
+            print("Hit");
+
+            enemyHealth -= 10;
+
+        }
+
     }
 
     void OnTriggerStay2D(Collider2D col)

@@ -83,7 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dd72fde0255c54ab80e1e14d92752a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 15
+  bulletSpeed: 2000
+  bulletDamage: 7
+  ammoCount: 10
   shootPos: {fileID: 0}
   bullet: {fileID: 5029246, guid: 01816ff631adc804bb9546b1a53bf62a, type: 2}
   playerObj: {fileID: 0}

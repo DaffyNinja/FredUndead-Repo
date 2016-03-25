@@ -15,6 +15,7 @@ TagManager:
   - Enemy Hand
   - BaseBall Bat
   - Weapon
+  - Pistol Bullet
   layers:
   - Default
   - TransparentFX
