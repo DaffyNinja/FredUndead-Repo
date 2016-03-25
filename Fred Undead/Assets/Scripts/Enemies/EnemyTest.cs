@@ -50,6 +50,9 @@ public class EnemyTest : MonoBehaviour
     BoxCollider2D ownCollider;
     BoxCollider2D handCol;
 
+    [Header("Effects")]
+    public ParticleSystem bloodEffect;
+
 
     // Use this for initialization
     void Start()
@@ -226,6 +229,8 @@ public class EnemyTest : MonoBehaviour
             //  print("Hit");
 
             enemyHealth -= damageCount;
+
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
         }
 
         if (col.gameObject.tag == "Pistol Bullet")
@@ -234,12 +239,11 @@ public class EnemyTest : MonoBehaviour
 
             enemyHealth -= 10;
 
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+
         }
 
     }
 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        
-    }
+  
 }

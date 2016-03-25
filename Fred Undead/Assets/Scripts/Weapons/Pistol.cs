@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Pistol : MonoBehaviour
@@ -6,6 +7,8 @@ public class Pistol : MonoBehaviour
     public float bulletSpeed;
     public int bulletDamage;
     public int ammoCount;
+
+
 
 
     public Transform shootPos;
@@ -46,8 +49,13 @@ public class Pistol : MonoBehaviour
 
     void Update()
     {
+
+
+
         if (canUse)
         {
+
+
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 Fire();
@@ -59,10 +67,11 @@ public class Pistol : MonoBehaviour
         {
             playerCom.hasWeapon = false;
             canUse = false;
+
             Destroy(gameObject);
         }
 
- 
+
 
 
 

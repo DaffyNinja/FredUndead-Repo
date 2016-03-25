@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.788046, y: -3.79, z: 0}
+  m_LocalPosition: {x: -133.85457, y: 522.2253, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 417538}
@@ -86,10 +86,12 @@ MonoBehaviour:
   bulletSpeed: 2000
   bulletDamage: 7
   ammoCount: 10
+  ammoText: {fileID: 0}
   shootPos: {fileID: 0}
   bullet: {fileID: 5029246, guid: 01816ff631adc804bb9546b1a53bf62a, type: 2}
   playerObj: {fileID: 0}
   canUse: 0
+  playerCom: {fileID: 0}
 --- !u!212 &21257342
 SpriteRenderer:
   m_ObjectHideFlags: 1

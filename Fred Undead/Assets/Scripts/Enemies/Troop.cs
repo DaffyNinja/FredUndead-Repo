@@ -264,6 +264,8 @@ public class Troop : MonoBehaviour
 
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
 
+
+
         }
 
         if (col.gameObject.tag == "Pistol Bullet")
