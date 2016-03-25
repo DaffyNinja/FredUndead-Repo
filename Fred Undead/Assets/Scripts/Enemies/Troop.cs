@@ -265,6 +265,13 @@ public class Troop : MonoBehaviour
             Instantiate(bloodEffect, transform.position, Quaternion.identity);
 
         }
+
+        if (col.gameObject.tag == "Pistol Bullet")
+        {
+            troopHealthPoints -= 10;
+
+            Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        }
     }
 
 

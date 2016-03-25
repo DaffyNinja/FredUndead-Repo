@@ -230,7 +230,7 @@ public class EnemyTest : MonoBehaviour
 
         if (col.gameObject.tag == "Pistol Bullet")
         {
-            print("Hit");
+           // print("Hit");
 
             enemyHealth -= 10;
 

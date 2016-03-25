@@ -58,11 +58,12 @@ public class BaseBallBat : MonoBehaviour
 
         if (useNum <= 0)
         {
+
+            playerCom.hasWeapon = false;
+
             canUse = false;
 
             dealDamge = false;
-
-            playerCom.hasWeapon = false;
 
             Destroy(gameObject);
         }

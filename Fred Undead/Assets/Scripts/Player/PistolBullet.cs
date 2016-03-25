@@ -10,11 +10,11 @@ public class PistolBullet : MonoBehaviour
 
     public bool created;
 
-                        
+
 
     // Use this for initialization
     void Start()
-    { 
+    {
 
         created = true;
 
@@ -41,5 +41,20 @@ public class PistolBullet : MonoBehaviour
         }
 
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+
+        if (col.gameObject.tag == "Enemy")
+        {
+
+            print("Hit");
+
+            created = false;
+            timer = 0;
+            Destroy(gameObject);
+        }
+    }
 }
+
 

@@ -78,13 +78,15 @@ public class PlayerCombat : MonoBehaviour
             switch (pickedUpWeaponObj.transform.tag)
             {
                 case "Gun":
+                    pickedUpWeaponObj.GetComponent<Pistol>().playerCom = GetComponent<PlayerCombat>();
                     pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
                     pickedUpWeaponObj.GetComponent<Pistol>().playerObj = playerMoveCS;
-                    pickedUpWeaponObj.GetComponent<Pistol>().playerCom = GetComponent<PlayerCombat>();
+                    
                     break;
                 case "BaseBall Bat":
-                    pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().playerCom = GetComponent<PlayerCombat>();
+                    pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;
+                  
 
                     break;
                 default:
