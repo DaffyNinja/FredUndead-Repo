@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.50049, y: 34.534023, z: 0}
+  m_LocalPosition: {x: -32.735107, y: 34.534023, z: 0}
   m_LocalScale: {x: 1, y: 1.3076082, z: 1}
   m_Children:
   - {fileID: 491180}
@@ -280,8 +280,8 @@ MonoBehaviour:
   speed: 5
   troopHealthPoints: 30
   troopEnemyBar: {fileID: 11451528}
-  moveLeft: 1
-  moveRight: 0
+  moveLeft: 0
+  moveRight: 1
   canHitLeft: 1
   canHitRight: 0
   isFacingRight: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 491180}
   gunSightLength: 5
   startShooting: 0
-  canShoot: 0
+  canShoot: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 16384
@@ -408,7 +408,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

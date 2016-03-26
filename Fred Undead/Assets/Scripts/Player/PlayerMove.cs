@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
     public Sprite undyingSpr;
 
     SpriteRenderer sprRnd;
-    public Slider decayBar;
+    //public Slider decayBar;
 
     [Space(5)]
     public CameraMove camMove;
@@ -50,6 +50,10 @@ public class PlayerMove : MonoBehaviour
     [Space(5)]
     public Transform passedTrans;
     public bool passedLayer;
+
+    //David's
+    [Header("User Interface")]
+    public Image imHealthFill;
 
     PlayerCombat playerComb;
 
@@ -65,10 +69,6 @@ public class PlayerMove : MonoBehaviour
         isUndying = true;
 
         playerComb = GetComponent<PlayerCombat>();
-
-        decayBar.maxValue = healthPoints;
-  
-
     }
 
     // Update is called once per frame
@@ -168,7 +168,7 @@ public class PlayerMove : MonoBehaviour
     void Health()
     {
 
-        decayBar.value = healthPoints;
+        imHealthFill.fillAmount = 2f * healthPoints / 100f;
 
         if (healthPoints <= 0)
         {

@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1970.9, y: 51.4, z: 0}
+  m_LocalPosition: {x: -1931.3, y: 1.4, z: 0}
   m_LocalScale: {x: 1.641954, y: 1.2813743, z: 1}
   m_Children:
   - {fileID: 483880}
@@ -153,10 +153,10 @@ MonoBehaviour:
   crawlerSpr: {fileID: 21300004, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
   zombieSpr: {fileID: 21300002, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
   undyingSpr: {fileID: 21300000, guid: 73a08c4dbcf992c4983c7129162dac5b, type: 3}
-  decayBar: {fileID: 0}
   camMove: {fileID: 0}
   passedTrans: {fileID: 0}
   passedLayer: 0
+  imHealthFill: {fileID: 0}
 --- !u!212 &21292306
 SpriteRenderer:
   m_ObjectHideFlags: 1
