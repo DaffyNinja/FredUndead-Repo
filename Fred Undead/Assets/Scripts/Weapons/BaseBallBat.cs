@@ -38,7 +38,7 @@ public class BaseBallBat : MonoBehaviour
         {
             //polyCol.enabled = true;
 
-            if (Input.GetKey(KeyCode.X))
+            if (Input.GetKey(KeyCode.Z))
             {
                 // transform.eulerAngles = new Vector3(0, 0, -35);
 
@@ -46,7 +46,7 @@ public class BaseBallBat : MonoBehaviour
 
                 dealDamge = true;
             }
-            else if (Input.GetKeyUp(KeyCode.X))
+            else if (Input.GetKeyUp(KeyCode.Z))
             {
                 // transform.eulerAngles = new Vector3(0, 0, 0);
 
@@ -92,6 +92,8 @@ public class BaseBallBat : MonoBehaviour
                     col.gameObject.GetComponent<EnemyTest>().enemyHealth -= damgeToDeal;
                 }
             }
+
+            
 
             //if (baseBallHitTrig.GetComponent<Collider2D>().tag == "Enemy")
             //{

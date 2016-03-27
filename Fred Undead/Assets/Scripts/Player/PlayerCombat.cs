@@ -17,6 +17,8 @@ public class PlayerCombat : MonoBehaviour
     public GameObject pickedUpWeaponObj;
     public bool hasWeapon;
 
+    bool canDrop;
+
 
     PlayerMove playerMoveCS;
 
@@ -65,6 +67,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (hasWeapon)
         {
+            canHit = false;
 
             if (!playerMoveCS.isFacingRight)
             {
@@ -81,12 +84,17 @@ public class PlayerCombat : MonoBehaviour
                     pickedUpWeaponObj.GetComponent<Pistol>().playerCom = GetComponent<PlayerCombat>();
                     pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
                     pickedUpWeaponObj.GetComponent<Pistol>().playerObj = playerMoveCS;
-                    
+
+                   
+
+
                     break;
                 case "BaseBall Bat":
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().playerCom = GetComponent<PlayerCombat>();
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;
-                  
+
+                    canDrop = true;
+   
 
                     break;
                 default:
@@ -94,8 +102,22 @@ public class PlayerCombat : MonoBehaviour
                     break;
             }
 
+            
 
         }
+        else
+        {
+            canHit = true;
+        }
+
+        if (canDrop)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                print("Drop");
+            }
+        }
+
 
     }
 

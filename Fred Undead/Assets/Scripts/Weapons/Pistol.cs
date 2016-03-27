@@ -55,7 +55,6 @@ public class Pistol : MonoBehaviour
         if (canUse)
         {
 
-
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 Fire();

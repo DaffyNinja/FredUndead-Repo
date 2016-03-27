@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf647ad8b6a0974c8a05815121dca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damgeToDeal: 5
+  damgeToDeal: 8
   useNum: 5
   canUse: 1
   dealDamge: 0

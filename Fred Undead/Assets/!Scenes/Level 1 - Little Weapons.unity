@@ -6111,6 +6111,14 @@ Prefab:
       propertyPath: m_Mass
       value: 61.064888
       objectReference: {fileID: 0}
+    - target: {fileID: 135434, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 135434, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
   m_IsPrefabParent: 0
@@ -7448,7 +7456,7 @@ GameObject:
   - 222: {fileID: 1710425981}
   - 114: {fileID: 1710425980}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: Player HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

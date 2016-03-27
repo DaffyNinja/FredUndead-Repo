@@ -39,6 +39,7 @@ public class WeaponPickup : MonoBehaviour
 
                 col.gameObject.GetComponent<PlayerCombat>().pickedUpWeaponObj = weaponObj;
                 col.gameObject.GetComponent<PlayerCombat>().hasWeapon = true;
+               // col.gameObject.GetComponent<PlayerCombat>().canHit = false;
 
                 weaponObj.transform.parent = col.gameObject.transform;
                 weaponObj.GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -50,7 +51,7 @@ public class WeaponPickup : MonoBehaviour
                         break;
                     case "BaseBall Bat":
                         weaponObj.GetComponent<BaseBallBat>().canUse = true;
-                        
+
                         break;
                     default:
                         print("Error");
