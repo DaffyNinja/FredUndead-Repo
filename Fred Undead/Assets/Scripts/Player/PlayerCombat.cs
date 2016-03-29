@@ -112,9 +112,13 @@ public class PlayerCombat : MonoBehaviour
 
         if (canDrop)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.V))
             {
                 print("Drop");
+
+                pickedUpWeaponObj.transform.parent = null;
+                hasWeapon = false;
+                canDrop = false;
             }
         }
 
