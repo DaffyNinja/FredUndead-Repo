@@ -128,6 +128,7 @@ public class EnemyTest : MonoBehaviour
 
             }
         }
+
         else if (canHitRight)  // Else if the enemy has a wall on the right, move left
         {
             if (hitRight && hitRight.collider != ownCollider)
