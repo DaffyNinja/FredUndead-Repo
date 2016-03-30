@@ -1129,11 +1129,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458586, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1952.885
+      value: -1941.63
       objectReference: {fileID: 0}
     - target: {fileID: 458586, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25.41
+      value: 22.16
       objectReference: {fileID: 0}
     - target: {fileID: 458586, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1158,22 +1158,6 @@ Prefab:
     - target: {fileID: 458586, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400010, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400010, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
-      propertyPath: moveRight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400010, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
-      propertyPath: rayLength
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400010, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
-      propertyPath: wallLayer.m_Bits
-      value: 3840
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e239537d9633c44787b8c126e13f6e6, type: 2}
@@ -7312,11 +7296,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1931.3
+      value: -1940.9
       objectReference: {fileID: 0}
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.4
+      value: 19.7
       objectReference: {fileID: 0}
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.z

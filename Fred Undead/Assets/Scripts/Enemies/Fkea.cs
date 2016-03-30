@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fkea : MonoBehaviour {
+public class Fkea : MonoBehaviour
+{
 
     public float speed;
 
@@ -12,23 +13,24 @@ public class Fkea : MonoBehaviour {
     public LayerMask wallLayer;
 
     BoxCollider2D ownCollider;
+    //CircleCollider2D detectionCol;
     Rigidbody2D rig2D;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         ownCollider = GetComponent<BoxCollider2D>();
+       // detectionCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
         rig2D = GetComponent<Rigidbody2D>();
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         Movement();
-        
-	
-	}
+
+    }
 
     void Movement()
     {
@@ -38,7 +40,7 @@ public class Fkea : MonoBehaviour {
 
         if (hitLeft && hitLeft.collider != ownCollider)
         {
-           // print("Hit Left");
+            // print("Hit Left");
 
             moveLeft = false;
             moveRight = true;
@@ -46,11 +48,11 @@ public class Fkea : MonoBehaviour {
         }
         else if (hitRight && hitRight.collider != ownCollider)
         {
-           // print("Hit Right");
+            // print("Hit Right");
 
             moveRight = false;
             moveLeft = true;
-           
+
         }
 
         if (moveRight) // Moves in the right direction
@@ -65,5 +67,24 @@ public class Fkea : MonoBehaviour {
             rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
 
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+
+        if (col.gameObject.tag == "Player")
+        {
+            //print("Hit");
+
+            GameObject playerObj = col.gameObject;
+
+            moveRight = false;
+            moveLeft = false;
+
+            Vector2 moveQauntity = new Vector2(playerObj.transform.position.x, playerObj.transform.position.y);
+            rig2D.velocity = moveQauntity;
+
+        }
+
     }
 }
