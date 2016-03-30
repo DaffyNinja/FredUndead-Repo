@@ -6,9 +6,15 @@ public class Fkea : MonoBehaviour
 
     public float speed;
 
+
     public bool moveLeft;
     public bool moveRight;
 
+    public bool goAttack;
+
+    [Header("Combat")]
+    public float dammagePoints;
+    public float attackSpeed;
     public float rayLength;
     public LayerMask wallLayer;
 
@@ -16,11 +22,13 @@ public class Fkea : MonoBehaviour
     //CircleCollider2D detectionCol;
     Rigidbody2D rig2D;
 
+    GameObject playerObj;
+
     // Use this for initialization
     void Start()
     {
         ownCollider = GetComponent<BoxCollider2D>();
-       // detectionCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
+        // detectionCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
         rig2D = GetComponent<Rigidbody2D>();
 
     }
@@ -29,6 +37,18 @@ public class Fkea : MonoBehaviour
     void Update()
     {
         Movement();
+
+
+        if (goAttack)
+        {
+            print("Attack");
+
+            transform.position = Vector3.Lerp(transform.position, playerObj.transform.position, attackSpeed);
+
+            //gameObject.transform.position = new Vector2(playerObj.transform.position.x, playerObj.transform.position.y + 2);
+
+        }
+
 
     }
 
@@ -76,15 +96,38 @@ public class Fkea : MonoBehaviour
         {
             //print("Hit");
 
-            GameObject playerObj = col.gameObject;
+            playerObj = col.gameObject;
 
             moveRight = false;
             moveLeft = false;
 
-            Vector2 moveQauntity = new Vector2(playerObj.transform.position.x, playerObj.transform.position.y);
-            rig2D.velocity = moveQauntity;
+            goAttack = true;
+
 
         }
+
+        if (col.gameObject.tag == "Hand")
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            print("Leave");
+
+            playerObj = null;
+
+            goAttack = false;
+
+            moveLeft = true;
+
+
+        }
+
 
     }
 }
