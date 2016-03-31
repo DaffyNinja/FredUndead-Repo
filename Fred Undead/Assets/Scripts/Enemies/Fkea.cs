@@ -5,18 +5,18 @@ public class Fkea : MonoBehaviour
 {
 
     public float speed;
-
-
     public bool moveLeft;
     public bool moveRight;
 
-    public bool goAttack;
+    public bool isPatrolling;
 
     [Header("Combat")]
     public float dammagePoints;
     public float attackSpeed;
     public float rayLength;
     public LayerMask wallLayer;
+
+    public bool isInCombat;
 
     BoxCollider2D ownCollider;
     //CircleCollider2D detectionCol;
@@ -39,7 +39,7 @@ public class Fkea : MonoBehaviour
         Movement();
 
 
-        if (goAttack)
+        if (isInCombat)
         {
             print("Attack");
 
@@ -75,17 +75,21 @@ public class Fkea : MonoBehaviour
 
         }
 
-        if (moveRight) // Moves in the right direction
+        if (isPatrolling)
         {
-            Vector2 moveQauntity = new Vector2(speed, 0);
-            rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
 
-        }
-        else if (moveLeft)  // Moves in the left direction
-        {
-            Vector2 moveQauntity = new Vector2(-speed, 0);
-            rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
+            if (moveRight) // Moves in the right direction
+            {
+                Vector2 moveQauntity = new Vector2(speed, 0);
+                rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
 
+            }
+            else if (moveLeft)  // Moves in the left direction
+            {
+                Vector2 moveQauntity = new Vector2(-speed, 0);
+                rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
+
+            }
         }
     }
 
@@ -101,7 +105,8 @@ public class Fkea : MonoBehaviour
             moveRight = false;
             moveLeft = false;
 
-            goAttack = true;
+            isPatrolling = false;
+            isInCombat = true;
 
 
         }
@@ -121,7 +126,8 @@ public class Fkea : MonoBehaviour
 
             playerObj = null;
 
-            goAttack = false;
+            isInCombat = false;
+            isPatrolling = true;
 
             moveLeft = true;
 
