@@ -3510,7 +3510,7 @@ MonoBehaviour:
   disX: 2
   disY: 0.55
   disZ: -10
-  cameraOrthSize: 6.5
+  cameraOrthSize: 4
   playerTrans: {fileID: 1549353610}
   isLeftSide: 1
   isRightSide: 0
@@ -7300,11 +7300,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1949.62
+      value: -1949.383
       objectReference: {fileID: 0}
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.7
+      value: 18.257
       objectReference: {fileID: 0}
     - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7338,6 +7338,14 @@ Prefab:
       propertyPath: imHealthFill
       value: 
       objectReference: {fileID: 637927022}
+    - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.97700804
+      objectReference: {fileID: 0}
+    - target: {fileID: 404302, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.8172647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
   m_IsPrefabParent: 0
