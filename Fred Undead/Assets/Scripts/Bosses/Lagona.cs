@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Lagona : MonoBehaviour
@@ -19,6 +20,7 @@ public class Lagona : MonoBehaviour
 
     [Header("Health")]
     public int healthPoints;
+   // public Slider healthBar;
 
 
     GameObject hitHand;
@@ -27,6 +29,9 @@ public class Lagona : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+      //  healthBar.maxValue = healthPoints;
+      //  healthBar.value = healthPoints;
+
         hitHand = transform.GetChild(0).gameObject;
         squidShootPos = transform.GetChild(1);
 
@@ -37,7 +42,9 @@ public class Lagona : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // healthBar.value = healthPoints;
 
+        print(healthPoints);
 
         if (startShooting)
         {
@@ -61,6 +68,20 @@ public class Lagona : MonoBehaviour
         }
 
 
+        if (healthPoints <= 0)
+        {
+            print("Dead");
+        }
+
+
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Hand")
+        {
+            healthPoints -= col.gameObject.GetComponentInParent<PlayerCombat>().normalDamage;
+        }
 
     }
 }
