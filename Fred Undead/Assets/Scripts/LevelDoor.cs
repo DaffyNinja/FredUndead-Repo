@@ -22,7 +22,7 @@ public class LevelDoor : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 col.gameObject.transform.position = destPos.position;
             }

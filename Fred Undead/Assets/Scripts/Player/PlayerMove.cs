@@ -168,7 +168,7 @@ public class PlayerMove : MonoBehaviour
     void Health()
     {
 
-        imHealthFill.fillAmount = 2f * healthPoints / 100f;
+       // imHealthFill.fillAmount = 2f * healthPoints / 100f;
 
         if (healthPoints <= 0)
         {
