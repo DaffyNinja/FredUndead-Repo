@@ -57,8 +57,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1822.15, y: 51.42, z: 0}
-  m_LocalScale: {x: 2.1301394, y: 2.2451947, z: 1}
+  m_LocalPosition: {x: -1823.31, y: 50.86, z: 0}
+  m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_Children:
   - {fileID: 431026}
   - {fileID: 428724}
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.923, y: 1.183, z: 0}
+  m_LocalPosition: {x: -1.33, y: 1.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 422628}
@@ -96,7 +96,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122726}
   m_UseAutoMass: 1
-  m_Mass: 15.33322
+  m_Mass: 2.8854518
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 5
@@ -145,11 +145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  squidDamage: 0
   squidObj: {fileID: 142212, guid: 1e1e5f2114db3bc41a6b33e071ce006b, type: 2}
   squidShootPos: {fileID: 0}
   shootTime: 2
-  healthPoints: 0
+  healthPoints: 30
 --- !u!212 &21251218
 SpriteRenderer:
   m_ObjectHideFlags: 1
