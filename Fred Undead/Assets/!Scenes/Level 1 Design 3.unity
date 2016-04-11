@@ -1893,6 +1893,16 @@ Prefab:
       propertyPath: camMove
       value: 
       objectReference: {fileID: 1633104292}
+    - target: {fileID: 11410788, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: slashSpr
+      value: 
+      objectReference: {fileID: 21300008, guid: 061275577a6848d44a514b3ace4b137d,
+        type: 3}
+    - target: {fileID: 11410788, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
+      propertyPath: normalSpr
+      value: 
+      objectReference: {fileID: 21300002, guid: 061275577a6848d44a514b3ace4b137d,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c5328c86cbffb4b9a28cf23c4a4a2b, type: 2}
   m_IsPrefabParent: 0

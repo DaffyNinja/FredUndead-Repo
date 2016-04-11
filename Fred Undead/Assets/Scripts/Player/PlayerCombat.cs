@@ -19,6 +19,13 @@ public class PlayerCombat : MonoBehaviour
 
     bool canDrop;
 
+    [Space(5)]
+    public Sprite slashSpr;
+
+    Sprite normalSpr;
+
+    SpriteRenderer sprRend;
+
 
     PlayerMove playerMoveCS;
 
@@ -33,6 +40,12 @@ public class PlayerCombat : MonoBehaviour
 
         playerMoveCS = GetComponent<PlayerMove>();
 
+
+
+        sprRend = GetComponent<SpriteRenderer>();
+
+        normalSpr = sprRend.sprite;
+
     }
 
     // Update is called once per frame
@@ -44,12 +57,16 @@ public class PlayerCombat : MonoBehaviour
             {
                 hitHand.SetActive(true);
 
+                sprRend.sprite = slashSpr;
 
             }
             else if (Input.GetKeyUp(KeyCode.Z) || Input.GetButtonUp("Joystick X"))
             {
                 hitHand.SetActive(false);
                 canHit = false;
+
+
+                sprRend.sprite = normalSpr;
 
             }
         }
@@ -85,7 +102,7 @@ public class PlayerCombat : MonoBehaviour
                     pickedUpWeaponObj.GetComponent<Pistol>().canUse = true;
                     pickedUpWeaponObj.GetComponent<Pistol>().playerObj = playerMoveCS;
 
-                   
+
 
 
                     break;
@@ -94,7 +111,7 @@ public class PlayerCombat : MonoBehaviour
                     pickedUpWeaponObj.GetComponent<BaseBallBat>().canUse = true;
 
                     canDrop = true;
-   
+
 
                     break;
                 default:
@@ -102,7 +119,7 @@ public class PlayerCombat : MonoBehaviour
                     break;
             }
 
-            
+
 
         }
         else
