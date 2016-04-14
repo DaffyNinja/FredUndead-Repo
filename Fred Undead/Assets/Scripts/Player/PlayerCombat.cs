@@ -55,6 +55,9 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Joystick X"))
             {
+
+                print("Hit");
+
                 hitHand.SetActive(true);
 
                 sprRend.sprite = slashSpr;

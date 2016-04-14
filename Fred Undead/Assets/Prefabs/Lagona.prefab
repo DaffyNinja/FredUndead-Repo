@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 422628}
   - 212: {fileID: 21251218}
   - 61: {fileID: 6120522}
+  - 95: {fileID: 9555104}
   - 50: {fileID: 5017776}
   - 114: {fileID: 11429838}
   m_Layer: 0
@@ -57,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1823.31, y: 50.86, z: 0}
+  m_LocalPosition: {x: -1975.1948, y: -31.15036, z: 0}
   m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_Children:
   - {fileID: 431026}
@@ -133,6 +134,23 @@ BoxCollider2D:
   m_Offset: {x: -0.26672366, y: -0.36477104}
   serializedVersion: 2
   m_Size: {x: 0.46649688, y: 0.27045727}
+--- !u!95 &9555104
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122726}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd09b89a7e08ece44837c7f0ff2df829, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11429838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +193,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a411fad16aa6d14d986013cefabd018, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8630c971cb99cae4582ea9855fae1043, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

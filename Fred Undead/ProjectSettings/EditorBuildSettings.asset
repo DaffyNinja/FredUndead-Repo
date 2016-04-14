@@ -7,5 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/!Scenes/Enemy Test.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/!Scenes/Level 1 Design 1.unity
+  - enabled: 1
+    path: Assets/!Scenes/Level 1 Design 3.unity

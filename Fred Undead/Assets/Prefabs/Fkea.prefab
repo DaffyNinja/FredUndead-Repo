@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1941.63, y: 22.16, z: -1.21875}
+  m_LocalPosition: {x: -1918.01, y: 7.5987043, z: -1.21875}
   m_LocalScale: {x: 1.5244153, y: 1.1521266, z: 1}
   m_Children:
   - {fileID: 485682}
@@ -116,13 +116,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a25390f234ccf4390665678863388d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1
   moveLeft: 0
   moveRight: 1
+  isPatrolling: 0
+  dammagePoints: 0
+  attackSpeed: 0
   rayLength: 1.5
   wallLayer:
     serializedVersion: 2
     m_Bits: 3840
+  isInCombat: 0
 --- !u!212 &21245616
 SpriteRenderer:
   m_ObjectHideFlags: 1
